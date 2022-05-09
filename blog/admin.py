@@ -6,5 +6,6 @@ from .models import Post
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
-    """ Class to place what field summernote to be displayed in """
+    """ Class admin site post """
+    prepopulated_fields = {'slug': ('project_title', )}
     summernote_fields = ('project_description')
