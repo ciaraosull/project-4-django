@@ -2,29 +2,18 @@
 
 {% block content %}
 
-<h1>Welcome to CodeSea Home Page</h1>
+<main>
+    <h1>Welcome to CodeSea Home Page</h1>
+    {%  for post in posts  %}
 
-<div>
-    {% for post in post_list %}
+        <h2>{{  post.project_title  }}</h2>
 
-    {% endfor %}
-</div>
+        <p>{{  post.author  }}</p>
 
-<div>
-    {{ post.project_title }}
-</div>
+        <p>{{  post.date_posted  }}</p>
 
-<div>
-    {{ post.author }}
-</div>
+    {%  endfor  %}
 
-<div>
-    {{ post.date_posted }}
-</div>
+</main>
 
-<div>
-    {{ post.project_description}}
-</div>
-
-
-{%endblock%}
+{%  endblock  %}
