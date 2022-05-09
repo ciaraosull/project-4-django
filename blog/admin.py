@@ -8,4 +8,5 @@ from .models import Post
 class PostAdmin(SummernoteModelAdmin):
     """ Class admin site post """
     prepopulated_fields = {'slug': ('project_title', )}
+    list_filter = ('date_posted', 'likes')
     summernote_fields = ('project_description')
