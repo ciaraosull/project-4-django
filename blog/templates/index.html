@@ -4,4 +4,27 @@
 
 <h1>Welcome to CodeSea Home Page</h1>
 
+<div>
+    {% for post in post_list %}
+
+    {% endfor %}
+</div>
+
+<div>
+    {{ post.project_title }}
+</div>
+
+<div>
+    {{ post.author }}
+</div>
+
+<div>
+    {{ post.date_posted }}
+</div>
+
+<div>
+    {{ post.project_description}}
+</div>
+
+
 {%endblock%}
