@@ -30,36 +30,32 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-sm navbar-light bg-primary">
-        <a href="#" class="navbar-brand mb-0 h1">
-            <!-- Logo Image Source Tag here: use class="d-inline-block align-top"-->
-            CodeSea
-        </a>
-        <!-- Bootstrap classes to collapse nav bar on smaller screens-->
-        <button 
-        type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#navbarNav" 
-        class="navbar-toggler"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation bar"
-        >Menu
-        </button>
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-primary">
+        <div class="container">
+            <a href="#" class="navbar-brand mb-0 h1">
+                <!-- Logo Image Source Tag here: use class="d-inline-block align-top"-->
+                CodeSea
+            </a>
+            <!-- Bootstrap classes to collapse nav bar on smaller screens-->
+            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation bar"><span
+                    class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item-active">
-                    <a href="#" class="nav-link active">Home</a>
-                </li>
-                <li class="nav-item-active">
-                    <a href="#" class="nav-link">About</a>
-                </li>
-                <li class="nav-item-active">
-                    <a href="#" class="nav-link">Sign In / Sign Up</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item-active">
+                        <a href="#" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item-active">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item-active">
+                        <a href="#" class="nav-link">Sign In / Sign Up</a>
+                    </li>
+                </ul>
 
+            </div>
         </div>
     </nav>
 
