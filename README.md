@@ -75,10 +75,13 @@ This website takes the users stories mentioned above into consideration to creat
 ## Credits
 ### Content
 
-### Media
 *   [Bootstrap 5 Classes Cheatsheet](https://www.studytonight.com/bootstrap/how-to-align-bootstrap-5-navbar-items-to-the-right)
 
 *   [Bootstrap 5 Move Nav Links Right](https://www.studytonight.com/bootstrap/how-to-align-bootstrap-5-navbar-items-to-the-right)
+
+### Media
+
+*   [Image for Customising Logo](https://flyclipart.com/tsunami-png-transparent-image-tsunami-clipart-439604)
 
 
 
