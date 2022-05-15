@@ -1,0 +1,14 @@
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: whitesmoke;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #0277bd;
+    border-bottom: 1px solid;
+}
+
+.navbar-light .navbar-nav .nav-link a:hover {
+    color: #0277bd;
+}
