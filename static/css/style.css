@@ -9,6 +9,7 @@
     border-bottom: 1px solid;
 }
 
-.navbar-light .navbar-nav .nav-link a:hover {
+#navbarNav a:hover {
     color: #0277bd;
+    letter-spacing: 1px;
 }
