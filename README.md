@@ -81,7 +81,7 @@ This website takes the users stories mentioned above into consideration to creat
 
 ### Media
 
-*   [Image for Customising Logo](https://flyclipart.com/tsunami-png-transparent-image-tsunami-clipart-439604)
+*   [Image for Customising Logo](https://commons.wikimedia.org/wiki/File:MILE_WAVE_LOGO.svg)
 
 
 
