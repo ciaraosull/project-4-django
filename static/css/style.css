@@ -1,3 +1,4 @@
+/* Custom styling for nav bar */
 .navbar {
     padding-top: 0;
     padding-bottom: 0;
@@ -12,4 +13,26 @@
 #navbarNav a:hover {
     color: #0277bd;
     letter-spacing: 1px;
+}
+
+/* Custom styling for footer */
+
+#footer {
+    background-color: whitesmoke;
+}
+
+#footer .btn-primary {
+    border-radius: 50px
+}
+
+#linkedin {
+    background-color: #0082ca;
+}
+
+#github {
+    background-color: #333333;
+}
+
+#copyright {
+    background-color: rgba(0, 0, 0, 0.2);
 }
