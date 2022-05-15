@@ -18,21 +18,25 @@
 /* Custom styling for footer */
 
 #footer {
-    background-color: whitesmoke;
+    background-color: #3f51b5;
+}
+
+#footer a {
+    text-decoration: none;
+}
+
+#footer a:hover {
+    letter-spacing: 1px;
 }
 
 #footer .btn-primary {
     border-radius: 50px
 }
 
-#linkedin {
+#linkedin-link {
     background-color: #0082ca;
 }
 
-#github {
+#github-link {
     background-color: #333333;
-}
-
-#copyright {
-    background-color: rgba(0, 0, 0, 0.2);
 }
