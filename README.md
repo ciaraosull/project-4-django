@@ -79,6 +79,8 @@ This website takes the users stories mentioned above into consideration to creat
 
 *   [Bootstrap 5 Move Nav Links Right](https://www.studytonight.com/bootstrap/how-to-align-bootstrap-5-navbar-items-to-the-right)
 
+*   [Bootstrap Footer Ideas](https://mdbootstrap.com/docs/standard/navigation/footer/): A mix of these were used with customised styling
+
 ### Media
 
 *   [Image for Customising Logo](https://commons.wikimedia.org/wiki/File:MILE_WAVE_LOGO.svg)
