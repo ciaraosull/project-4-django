@@ -36,7 +36,7 @@
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-md navbar-light">
         <div class="container">
-            <a href="#" class="navbar-brand mb-0">
+            <a class="navbar-brand mb-0" href="{% url 'blog-home' %}">
                 <img src="https://res.cloudinary.com/ciara0s1980/image/upload/c_scale,w_113/v1652620673/logo_olndbb.gif"
                     alt="Code Sea Logo">
             </a>
@@ -49,16 +49,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item-active">
-                        <a href="#" class="nav-link active">Home</a>
+                        <a class="nav-link active" href="{% url 'blog-home' %}" aria-label="Go Home Page">Home</a>
                     </li>
                     <li class="nav-item-active">
-                        <a href="#" class="nav-link">About</a>
+                        <a href="#" class="nav-link" aria-label="Go About Page">About</a>
                     </li>
                     <li class="nav-item-active">
-                        <a href="#" class="nav-link">Register</a>
+                        <a href="#" class="nav-link" aria-label="Go Register Page">Register</a>
                     </li>
                     <li class="nav-item-active">
-                        <a href="#" class="nav-link">Log In</a>
+                        <a href="#" class="nav-link" aria-label="Go Log In Page">Log In</a>
                     </li>
                 </ul>
 
@@ -83,21 +83,21 @@
                     <!-- About Us Grid column -->
                     <div class="col-md-3">
                         <h6 class="text-uppercase font-weight-bold">
-                            <a href="#!" class="text-white">About us</a>
+                            <a href="#" class="text-white" aria-label="Go About Us Page">About us</a>
                         </h6>
                     </div>
 
                     <!-- Privacy Grid column -->
                     <div class="col-md-3">
                         <h6 class="text-uppercase font-weight-bold">
-                            <a href="#!" class="text-white">Privacy</a>
+                            <a href="#" class="text-white" aria-label="Go Privacy Policy Page">Privacy</a>
                         </h6>
                     </div>
 
                     <!-- Accessibility Grid column -->
                     <div class="col-md-3">
                         <h6 class="text-uppercase font-weight-bold">
-                            <a href="#!" class="text-white">Accessibility</a>
+                            <a href="#" class="text-white" aria-label="Go Accessibility Page">Accessibility</a>
                         </h6>
                     </div>
 
