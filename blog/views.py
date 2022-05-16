@@ -8,11 +8,12 @@ def home(request):
     context = {
         'posts': Post.objects.all()
     }
-    return render(request, 'index.html', context)
+    return render(request, 'blog/index.html', context)
+
 
 class PostListView(ListView):
+    """ Class to show the posts in list view on home page """
     model = Post
-    template_name = 'index.html'
+    template_name = 'blog/index.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
-    
