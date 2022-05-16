@@ -27,7 +27,7 @@ class Post(models.Model):
 
     def snippet(self):
         """ To return the first 100 characters of the description """
-        return self.project_description[:100] + '......'
+        return self.project_description[:100]
 
     def number_of_likes(self):
         """ To return the number of likes """

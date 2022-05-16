@@ -2,18 +2,20 @@
 
 {% block content %}
 
+<main>
 
-<h1>Welcome to CodeSea Home Page</h1>
-{%  for post in posts  %}
+    <h1>Welcome to CodeSea</h1>
+    <h2>A Peer Code Review Platform</h2>
+    {%  for post in posts  %}
 
-<h2>{{  post.project_title  }}</h2>
+    <h2>{{  post.project_title  }}</h2>
 
-<p>By <strong>{{  post.author  }}</strong> on <i>{{  post.date_posted  }}</i></p>
+    <p>By <strong>{{  post.author  }}</strong> on <i>{{  post.date_posted  }}</i></p>
 
-{{  post.snippet  }}
+    {{  post.project_description | safe  }}
 
-{%  endfor  %}
+    {%  endfor  %}
 
-
+</main>
 
 {%  endblock  %}
