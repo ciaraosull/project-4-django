@@ -14,7 +14,6 @@ class Post(models.Model):
     deployed_link = models.URLField(max_length=200)
     code_repository = models.URLField(max_length=200, blank=True)
     other_relevant_information = models.TextField(blank=True)
-    exerpt = models.TextField(blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
 
@@ -23,9 +22,15 @@ class Post(models.Model):
         ordering = ['-date_posted']
 
     def __str__(self):
+        """ To return the individual title objects as a string """
         return self.project_title
 
+    def snippet(self):
+        """ To return the first 100 characters of the description """
+        return self.project_description[:100] + '......'
+
     def number_of_likes(self):
+        """ To return the number of likes """
         return self.likes.count()
 
 
