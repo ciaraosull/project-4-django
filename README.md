@@ -81,6 +81,8 @@ This website takes the users stories mentioned above into consideration to creat
 
 *   [Bootstrap Footer Ideas](https://mdbootstrap.com/docs/standard/navigation/footer/): A mix of these were used with customised styling
 
+*   [Net Ninja Model Methods](https://www.youtube.com/watch?v=ERCt6HUcaFw): Used to learn how to make a model method to show a snippet of the description on home page
+
 ### Media
 
 *   [Image for Customising Logo](https://commons.wikimedia.org/wiki/File:MILE_WAVE_LOGO.svg)
