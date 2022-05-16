@@ -3,12 +3,12 @@ from django.views.generic import ListView
 from .models import Post
 
 
-def home(request):
-    """ draft function view to test linking of url """
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/index.html', context)
+# def home(request):
+#     """ draft function view to test linking of url """
+#     context = {
+#         'posts': Post.objects.all()
+#     }
+#     return render(request, 'blog/index.html', context)
 
 
 class PostListView(ListView):

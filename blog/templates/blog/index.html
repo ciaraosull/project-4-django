@@ -8,9 +8,7 @@
 
         <h2>{{  post.project_title  }}</h2>
 
-        <p>{{  post.author  }}</p>
-
-        <p>{{  post.date_posted  }}</p>
+        <p>By <strong>{{  post.author  }}</strong> on <i>{{  post.date_posted  }}</i></p>
 
         {{  post.project_description| safe  }}
 
