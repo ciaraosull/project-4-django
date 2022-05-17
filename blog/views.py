@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView, DetailView
 from .models import Post
 
 
@@ -17,3 +17,9 @@ class PostListView(ListView):
     template_name = 'blog/index.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
+    # paginate by = 6 goes here
+
+
+class PostDetailView(DetailView):
+    """ Class to show the individual posts in a detail view """
+    model = Post
