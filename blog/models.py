@@ -25,9 +25,9 @@ class Post(models.Model):
         """ To return the individual title objects as a string """
         return self.project_title
 
-    def snippet(self):
-        """ To return the first 100 characters of the description """
-        return self.project_description[:100] + '......'
+    # def snippet(self):
+        # """ To return the first 100 characters of the description """
+        # return self.project_description[:100] + '......'
 
     def number_of_likes(self):
         """ To return the number of likes """
