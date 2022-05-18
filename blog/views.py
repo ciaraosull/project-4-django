@@ -1,5 +1,9 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView
+# from django.shortcuts import render, get_object_or_404
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView
+)
 from .models import Post
 
 
@@ -15,3 +19,9 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     """ Class to show the individual posts in a detail view """
     model = Post
+
+
+class PostCreateView(CreateView):
+    """ Class to allow users to create posts """
+    model = Post
+    fields = ['title', 'content']
