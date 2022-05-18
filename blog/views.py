@@ -24,4 +24,4 @@ class PostDetailView(DetailView):
 class PostCreateView(CreateView):
     """ Class to allow users to create posts """
     model = Post
-    fields = ['title', 'content']
+    fields = ['project_title', 'project_description']

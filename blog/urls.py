@@ -9,5 +9,5 @@ from . import views
 urlpatterns = [
     path('', PostListView.as_view(), name='blog-home'),
     path('post/<slug:slug>/', PostDetailView.as_view(), name='post-detail'),
-    path('post/new/', PostCreateView.as_view(), name='post-create'),
+    path('new/', PostCreateView.as_view(), name='post-form'),
 ]
