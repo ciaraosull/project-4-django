@@ -8,7 +8,7 @@
     <h2>A Peer Code Review Platform</h2>
     {%  for post in posts  %}
 
-    <a href="{% url 'post-detail' post.slug %}"><h2>{{  post.project_title  }}</h2></a>
+    <a href="{% url 'post-detail' post.slug  %}"><h2>{{  post.project_title  }}</h2></a>
 
     <p>By <strong>{{  post.author  }}</strong> on <i>{{  post.date_posted  }}</i></p>
 

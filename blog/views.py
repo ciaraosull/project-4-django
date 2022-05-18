@@ -26,14 +26,8 @@ class PostCreateView(CreateView):
     model = Post
     fields = [
         'project_title',
-        'slug',
         'project_description',
         'deployed_link',
         'code_repository',
         'other_relevant_information'
         ]
-
-    def form_valid(self, form):
-        """Set the author to the logged in user"""
-        form.instance.author = self.request.user  # set author to loggedin user
-        return super().form_valid(form)  # then submit form
