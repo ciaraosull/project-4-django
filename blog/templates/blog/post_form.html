@@ -2,16 +2,25 @@
 {%  load crispy_forms_tags  %}
 {%  block content  %}
 
-    <div class="content-section">
-        <form method="POST">
-            {%  csrf_token  %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Add Post</legend>
-                {{  form | crispy  }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Add Post</button>
+<main>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
+                <form method="POST">
+                    {%  csrf_token  %}
+                    <fieldset class="form-group">
+                        <legend class="mb-4">
+                            <h1>Post Your Project to the Forum</h1>
+                        </legend>
+                        {{  form | crispy  }}
+                    </fieldset>
+                    <div class="form-group d-flex justify-content-end">
+                        <button class="btn btn-primary btn-lg mt-4" type="submit">Add Post</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
+</main>
+
 {%  endblock content  %}
