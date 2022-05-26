@@ -1,6 +1,8 @@
 main {
-    padding-top: 70px;
+    padding-top: 150px;
     padding-bottom: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 /* Custom styling for nav bar */
@@ -24,6 +26,7 @@ main {
 
 #footer {
     background-color: #3f51b5;
+    padding-top: 1rem;
 }
 
 #footer a {

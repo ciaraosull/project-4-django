@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<main>
-
-    <h1>Welcome to CodeSea</h1>
-    <h2>A Peer Code Review Platform</h2>
-    <h2>{{  object.project_title  }}</h2>
-    <p>By <strong>{{  object.author  }}</strong> on <i>{{  object.date_posted  }}</i></p>
-    <p>{{  object.project_description | safe  }}</p>
 
 
-</main>
+<h1>Welcome to CodeSea</h1>
+<h2>A Peer Code Review Platform</h2>
+<h2>{{  object.project_title  }}</h2>
+<p>By <strong>{{  object.author  }}</strong> on <i>{{  object.date_posted  }}</i></p>
+<p>{{  object.project_description | safe  }}</p>
+
+
+
 
 {%  endblock content  %}

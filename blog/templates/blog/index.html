@@ -2,20 +2,22 @@
 
 {% block content %}
 
-<main>
 
-    <h1>Welcome to CodeSea</h1>
-    <h2>A Peer Code Review Platform</h2>
-    {%  for post in posts  %}
 
-    <a href="{% url 'post-detail' post.slug  %}"><h2>{{  post.project_title  }}</h2></a>
+<h1>Welcome to CodeSea</h1>
+<h2>A Peer Code Review Platform</h2>
+{%  for post in posts  %}
 
-    <p>By <strong>{{  post.author  }}</strong> on <i>{{  post.date_posted  }}</i></p>
+<a href="{% url 'post-detail' post.slug  %}">
+    <h2>{{  post.project_title  }}</h2>
+</a>
 
-    <p>{{  post.project_description | striptags | slice:100  }}.......</p>
+<p>By <strong>{{  post.author  }}</strong> on <i>{{  post.date_posted  }}</i></p>
 
-    {%  endfor  %}
+<p>{{  post.project_description | striptags | slice:100  }}.......</p>
 
-</main>
+{%  endfor  %}
+
+
 
 {%  endblock content  %}
