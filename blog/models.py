@@ -27,7 +27,6 @@ class Post(models.Model):
 
     def get_post_url(self):
         """Find url after user posts to the forum"""
-        return reverse('blog-home')
         return reverse('post-detail', kwargs={'slug': self.slug})
 
     def number_of_likes(self):
