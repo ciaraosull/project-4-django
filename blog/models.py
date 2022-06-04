@@ -1,7 +1,7 @@
 """ Imports for blog models """
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 
 class Post(models.Model):
     """ Model for Posts """
@@ -25,9 +25,9 @@ class Post(models.Model):
         """ To return the individual title objects as a string """
         return self.project_title
 
-    # def snippet(self):
-        # """ To return the first 100 characters of the description """
-        # return self.project_description[:100] + '......'
+    def get_post_url(self):
+        """Find url after user posts to the forum"""
+        return reverse('blog-home')
 
     def number_of_likes(self):
         """ To return the number of likes """
