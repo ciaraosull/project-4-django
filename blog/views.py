@@ -8,9 +8,8 @@ from django.views.generic import (
     DetailView,
     CreateView
 )
-from django.utils.text import slugify
+
 from .models import Post
-from django.urls import reverse
 
 
 class PostListView(ListView):
@@ -32,17 +31,11 @@ class PostCreateView(CreateView):
     model = Post
     fields = [
         'project_title',
-        'slug',
         'project_description',
         'deployed_link',
         'code_repository',
         'other_relevant_information'
         ]
-    prepopulated_fields = {'slug': ('project_title', )}
-
-    def create_slug(self):
-        """Create Slug"""
-        Post.slug = slugify(Post.project_title)
 
     def form_valid(self, form):
         """Function to set signed in user as author of form to post"""
