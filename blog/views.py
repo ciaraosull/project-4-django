@@ -10,6 +10,7 @@ from django.views.generic import (
 )
 from django.utils.text import slugify
 from .models import Post
+from django.urls import reverse
 
 
 class PostListView(ListView):
@@ -37,8 +38,10 @@ class PostCreateView(CreateView):
         'code_repository',
         'other_relevant_information'
         ]
+    prepopulated_fields = {'slug': ('project_title', )}
 
     def create_slug(self):
+        """Create Slug"""
         Post.slug = slugify(Post.project_title)
 
     def form_valid(self, form):
