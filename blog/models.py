@@ -2,11 +2,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.template.defaultfilters import slugify
 
 
 class Post(models.Model):
     """ Model for Posts """
     project_title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, null=False)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_post')
     updated_on = models.DateTimeField(auto_now=True)
@@ -27,7 +29,12 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         """Find url after user posts to the forum"""
-        return reverse('post-detail', kwargs={'pk': self.pk})
+        return reverse('post-detail', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.project_title)
+        return super().save(*args, **kwargs)
 
     def number_of_likes(self):
         """ To return the number of likes """
