@@ -1,0 +1,26 @@
+{%  extends "base.html"  %}
+{%  block content  %}
+
+<main>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
+                <form method="POST">
+                    {%  csrf_token  %}
+                    <fieldset class="form-group">
+                        <legend class="mb-4">
+                            <h1>Delete Post</h1>
+                            <h3>Do you want to delete {{  object.title  }}?</h3>
+                        </legend>
+                    </fieldset>
+                    <div class="form-group d-flex justify-content-end">
+                        <button class="btn btn-danger btn-lg mt-4" type="submit">Delete</button>
+                        <a class="btn btn-info btn-lg mt-4" href="{%  url 'post-detail' object.slug  %}">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+{%  endblock content  %}
