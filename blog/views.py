@@ -3,6 +3,7 @@ Views to show the list of posts,
 details of each post
 create and delete posts
 """
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     ListView,
     DetailView,
@@ -26,8 +27,8 @@ class PostDetailView(DetailView):
     model = Post
 
 
-class PostCreateView(CreateView):
-    """ Class to allow users to create posts """
+class PostCreateView(LoginRequiredMixin, CreateView):
+    """ Class to allow logged in users to create posts """
     model = Post
     fields = [
         'project_title',
