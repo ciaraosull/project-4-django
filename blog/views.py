@@ -7,7 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     ListView,
     DetailView,
-    CreateView
+    CreateView,
+    UpdateView
 )
 
 from .models import Post
@@ -29,6 +30,23 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     """ Class to allow logged in users to create posts """
+    model = Post
+    fields = [
+        'project_title',
+        'project_description',
+        'deployed_link',
+        'code_repository',
+        'other_relevant_information'
+        ]
+
+    def form_valid(self, form):
+        """Function to set signed in user as author of form to post"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)  # set author before running
+
+
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+    """ Class to allow logged in users to update posts """
     model = Post
     fields = [
         'project_title',
