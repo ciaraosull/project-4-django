@@ -3,7 +3,7 @@ Views to show the list of posts,
 details of each post
 create and delete posts
 """
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
     ListView,
     DetailView,
@@ -45,7 +45,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)  # set author before running
 
 
-class PostUpdateView(LoginRequiredMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """ Class to allow logged in users to update posts """
     model = Post
     fields = [
@@ -60,3 +60,11 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
         """Function to set signed in user as author of form to post"""
         form.instance.author = self.request.user
         return super().form_valid(form)  # set author before running
+
+    def test_func(self):
+        "To ensure only the author of the post can update it"
+        post = self.get_object()  # get the post to be update
+        # ensure the author is the logged in user
+        if self.request.user == post.author:
+            return True  # if yes then update
+        return False  # if not then 403 forbidden
