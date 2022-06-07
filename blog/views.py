@@ -8,7 +8,8 @@ from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
-    UpdateView
+    UpdateView,
+    DeleteView
 )
 
 from .models import Post
@@ -64,7 +65,21 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         "To ensure only the author of the post can update it"
         post = self.get_object()  # get the post to be update
-        # ensure the author is the logged in user
+        # ensure the logged in user is the author
         if self.request.user == post.author:
             return True  # if yes then update
+        return False  # if not then 403 forbidden
+
+
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """ Class to allow the user of the post to delete it """
+    model = Post
+    success_url = '/'  # to redirect to home page after deleted
+
+    def test_func(self):
+        "To ensure only the author of the post can delete it"
+        post = self.get_object()  # get the post to be update
+        # ensure the logged in user is the author
+        if self.request.user == post.author:
+            return True  # if yes then delete
         return False  # if not then 403 forbidden
