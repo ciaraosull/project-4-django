@@ -14,8 +14,8 @@
 
 {%  if object.author == user  %}
 <div class="form-group d-flex justify-content-around">
-    <a class="btn btn-info btn-lg mt-4" href="{%  url 'post-update' object.slug  %}" aria-label="Update Post">Update Post</a>
-    <a class="btn btn-danger btn-lg mt-4" href="{%  url 'post-delete' object.slug  %}" aria-label="Delete Post">Delete Post</a>
+    <a class="btn btn-info btn-lg mt-4 me-3" href="{%  url 'post-update' object.slug  %}" aria-label="Update Post">Update Post</a>
+    <a class="btn btn-danger btn-lg mt-4 ms-3" href="{%  url 'post-delete' object.slug  %}" aria-label="Delete Post">Delete Post</a>
 </div>
 {%  endif  %}
 
