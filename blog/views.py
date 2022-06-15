@@ -93,7 +93,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
-    Class to allow the user of the post to delete it 
+    Class to allow the user of the post to delete it
     and then redirect back to home page
     """
     model = Post

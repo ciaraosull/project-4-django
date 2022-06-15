@@ -48,7 +48,6 @@ class Comment(models.Model):
     name = models.CharField(max_length=100)
     your_comment = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
-    #approved = models.BooleanField(default=False)
 
     class Meta:
         """ Ordering comments by first created """

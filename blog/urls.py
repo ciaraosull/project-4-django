@@ -1,3 +1,4 @@
+"""Url Patterns for Peer Code Review Platform"""
 from django.urls import path
 from .views import (
     PostListView,
