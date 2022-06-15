@@ -1,6 +1,6 @@
 from django import forms
 from django_summernote.widgets import SummernoteWidget
-from .models import Post
+from .models import Post, Comment
 
 
 class CreatePostForm(forms.ModelForm):
@@ -41,3 +41,14 @@ class UpdatePostForm(forms.ModelForm):
         widgets = {
             'project_description': SummernoteWidget(),
             }
+
+
+class CommentForm(forms.ModelForm):
+    """Create a form for users to comment on other posts"""
+    class Meta:
+        """
+        To state what model to use
+        and what fields to display on the form
+        """
+        model = Comment
+        fields = ('body',)
