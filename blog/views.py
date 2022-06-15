@@ -3,6 +3,7 @@ Views to show the list of posts,
 details of each post
 create and delete posts
 """
+from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
     ListView,
@@ -29,10 +30,34 @@ class PostDetailView(DetailView):
     model = Post
 
     def get_context_data(self, **kwargs):
+        """
+        Populate a dictionary with mapped variables
+        to reference in post_detail template in order to display the comments
+        and the comment form if the user is logged in
+        """
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context['comment_form'] = CommentForm()
-        context['comments'] = Comment()
+        #context_object_name = 'comments'
         return context
+
+    def post(self, request, slug):
+        """
+        To get the post by slug and display comment form
+        if user is logged in.  If form is valid then,
+        save the details of the comment form and include username
+        """
+        post = get_object_or_404(Post, slug=slug)
+
+        comment_form = CommentForm(data=request.POST)
+
+        if comment_form.is_valid():
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('post-detail', post.slug)
+        else:
+            comment_form = CommentForm()
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):

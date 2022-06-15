@@ -17,10 +17,10 @@ class PostAdmin(SummernoteModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     """Class to display comments on admin site and approve"""
-    list_display = ('name', 'your_comment', 'post', 'date_posted', 'approved')
-    list_filter = ('approved', 'date_posted')
+    list_display = ('name', 'your_comment', 'post', 'date_posted')
+    list_filter = ('date_posted', 'name')
     search_fields = ('name', 'your_comment')
-    actions = ['approve_comments']
+    #actions = ['approve_comments']
 
-    def approve_comments(self, request, queryset):
-        queryset.update(approved=True)
+    #def approve_comments(self, request, queryset):
+     #   queryset.update(approved=True)

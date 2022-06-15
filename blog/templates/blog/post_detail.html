@@ -10,19 +10,31 @@
 <h2>{{  object.project_title  }}</h2>
 <p>By <strong>{{  object.author  }}</strong> on <i>{{  object.date_posted  }}</i></p>
 <p>{{  object.project_description | safe  }}</p>
-<p>Delpoyed Site: <a href="{{  object.deployed_link  }}" target="_blank" aria-label="Go to the deployed site link">{{  object.deployed_link  }}</a></p>
-<p>Code Repository: <a href="{{  object.code_repository  }}" target="_blank" aria-label="Go to the code repository site">{{  object.code_repository  }}</a></p>
+<p>Delpoyed Site: <a href="{{  object.deployed_link  }}" target="_blank"
+        aria-label="Go to the deployed site link">{{  object.deployed_link  }}</a></p>
+<p>Code Repository: <a href="{{  object.code_repository  }}" target="_blank"
+        aria-label="Go to the code repository site">{{  object.code_repository  }}</a></p>
 <p>{{  object.other_relevant_information  }}</p>
 
 {%  if object.author == user  %}
 <div class="form-group d-flex justify-content-around">
-    <a class="btn btn-info btn-lg mt-4 me-3" href="{%  url 'post-update' object.slug  %}" aria-label="Update Post">Update Post</a>
-    <a class="btn btn-danger btn-lg mt-4 ms-3" href="{%  url 'post-delete' object.slug  %}" aria-label="Delete Post">Delete Post</a>
+    <a class="btn btn-info btn-lg mt-4 me-3" href="{%  url 'post-update' object.slug  %}"
+        aria-label="Update Post">Update Post</a>
+    <a class="btn btn-danger btn-lg mt-4 ms-3" href="{%  url 'post-delete' object.slug  %}"
+        aria-label="Delete Post">Delete Post</a>
 </div>
 {%  endif  %}
 
 <div class="container d-flex justify-content-start">
-    <h4>{{  comments  }}</h4>
+    <div>
+        {% for comment in comments %}
+        <div>
+            {{ comment.name }}
+            {{ comment.date_posted }}
+            {{ comment.your_comment  }}
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 {%  if user.is_authenticated  %}
@@ -48,7 +60,7 @@
 </div>
 <div>
 
-{%  endif  %}
+    {%  endif  %}
 
 
-{%  endblock content  %}
+    {%  endblock content  %}
