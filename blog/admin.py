@@ -1,7 +1,7 @@
 """ Imports for blog admin"""
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Comments
+from .models import Post, Comment
 
 
 @admin.register(Post)
@@ -14,8 +14,9 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('project_description')
 
 
-@admin.register(Comments)
-class CommentsAdmin(admin.ModelAdmin):
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    """Class to display comments on admin site and approve"""
     list_display = ('name', 'body', 'post', 'date_posted', 'approved')
     list_filter = ('approved', 'date_posted')
     search_fields = ('name', 'body')
