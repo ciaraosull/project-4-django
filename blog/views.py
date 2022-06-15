@@ -12,7 +12,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
-from .forms import CreatePostForm
+from .forms import CreatePostForm, UpdatePostForm
 
 
 class PostListView(ListView):
@@ -43,13 +43,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """ Class to allow logged in users to update posts """
     model = Post
-    fields = [
-        'project_title',
-        'project_description',
-        'deployed_link',
-        'code_repository',
-        'other_relevant_information'
-        ]
+    form_class = UpdatePostForm
 
     def form_valid(self, form):
         """Function to set signed in user as author of form to post"""
