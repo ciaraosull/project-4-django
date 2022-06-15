@@ -11,9 +11,8 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-
-from django_summernote.widgets import SummernoteWidget
 from .models import Post
+from .forms import CreatePostForm
 
 
 class PostListView(ListView):
@@ -33,16 +32,7 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     """ Class to allow logged in users to create posts """
     model = Post
-    fields = [
-        'project_title',
-        'project_description',
-        'deployed_link',
-        'code_repository',
-        'other_relevant_information'
-        ]
-    widgets = {
-        'project_description': SummernoteWidget(),
-        }
+    form_class = CreatePostForm
 
     def form_valid(self, form):
         """Function to set signed in user as author of form to post"""
@@ -60,9 +50,6 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         'code_repository',
         'other_relevant_information'
         ]
-    widgets = {
-        'project_description': SummernoteWidget(),
-        }
 
     def form_valid(self, form):
         """Function to set signed in user as author of form to post"""
