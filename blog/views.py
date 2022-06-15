@@ -12,7 +12,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Post, Comment
+from .models import Post
 from .forms import CreatePostForm, UpdatePostForm, CommentForm
 
 
@@ -28,17 +28,6 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     """ Class to show the individual posts in a detail view """
     model = Post
-
-    def get_context_data(self, **kwargs):
-        """
-        Populate a dictionary with mapped variables
-        to reference in post_detail template in order to display the comments
-        and the comment form if the user is logged in
-        """
-        context = super(PostDetailView, self).get_context_data(**kwargs)
-        context['comment_form'] = CommentForm()
-        #context_object_name = 'comments'
-        return context
 
     def post(self, request, slug):
         """
@@ -58,6 +47,16 @@ class PostDetailView(DetailView):
             return redirect('post-detail', post.slug)
         else:
             comment_form = CommentForm()
+
+    def get_context_data(self, **kwargs):
+        """
+        Populate a dictionary with mapped variables
+        to reference in post_detail template in order to display the comments
+        and the comment form if the user is logged in
+        """
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        return context
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
