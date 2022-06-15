@@ -29,10 +29,9 @@
     <div>
         <h3>Comments</h3>
     </div>
-    
+    {% for comment in post.comments.all %}
     <div>
-        {% for comment in post.comments.all %}
-        <p>By {{ comment.name }} on {{ comment.date_posted }}</p>
+        <p>By <strong>{{  comment.name  }}</strong> on <i>{{  comment.date_posted  }}</i></p>
         <p>{{ comment.your_comment  }}</p>
     </div>
     {% endfor %}
