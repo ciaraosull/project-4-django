@@ -51,4 +51,4 @@ class CommentForm(forms.ModelForm):
         and what fields to display on the form
         """
         model = Comment
-        fields = ('body',)
+        fields = ('your_comment',)

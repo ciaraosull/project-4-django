@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+{%  load crispy_forms_tags  %}
+
 
 
 <h1>Welcome to CodeSea</h1>
@@ -17,6 +19,31 @@
     <a class="btn btn-info btn-lg mt-4 me-3" href="{%  url 'post-update' object.slug  %}" aria-label="Update Post">Update Post</a>
     <a class="btn btn-danger btn-lg mt-4 ms-3" href="{%  url 'post-delete' object.slug  %}" aria-label="Delete Post">Delete Post</a>
 </div>
+{%  endif  %}
+
+{%  if user.is_authenticated  %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form method="POST">
+                {%  csrf_token  %}
+                <fieldset class="form-group">
+                    <legend class="mb-4">
+                        <h4>Leave a Comment</h4>
+                        <p>Posting As: {{  user.username  }}</p>
+                    </legend>
+                    {{  comment_form | crispy  }}
+                </fieldset>
+                <div class="form-group d-flex justify-content-end">
+                    <button class="btn btn-primary btn-lg mt-4" type="submit">Add Comment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+
 {%  endif  %}
 
 

@@ -11,9 +11,8 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Post
-from .forms import CommentForm
-from .forms import CreatePostForm, UpdatePostForm
+from .models import Post, Comment
+from .forms import CreatePostForm, UpdatePostForm, CommentForm
 
 
 class PostListView(ListView):
@@ -28,6 +27,11 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     """ Class to show the individual posts in a detail view """
     model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super(PostDetailView, self).get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        return context
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
@@ -79,9 +83,3 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
-
-
-class PostCommentView(CreateView):
-    """ Class to allow logged in users to comment """
-    model = Post
-    form_class = CommentForm
