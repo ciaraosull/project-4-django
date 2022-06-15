@@ -21,9 +21,13 @@
 </div>
 {%  endif  %}
 
+<div class="container d-flex justify-content-start">
+    <h4>{{  comments  }}</h4>
+</div>
+
 {%  if user.is_authenticated  %}
 
-<div class="container">
+<div class="container d-flex justify-content-end">
     <div class="row">
         <div class="col-md-8">
             <form method="POST">
