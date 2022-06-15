@@ -12,15 +12,16 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
+from .forms import CommentForm
 from .forms import CreatePostForm, UpdatePostForm
 
 
 class PostListView(ListView):
-    """ Class to show the posts in list view on home page """
-    model = Post  # model to use
-    template_name = 'blog/index.html'  # set variable to html template name
-    context_object_name = 'posts'  # name of variable to loop over in template
-    ordering = ['-date_posted']  # order by most recent
+    """Class to show the posts in list view on home page """
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
     # paginate by = 6 goes here maybe
 
 
@@ -37,7 +38,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         """Function to set signed in user as author of form to post"""
         form.instance.author = self.request.user
-        return super().form_valid(form)  # set author before running
+        return super().form_valid(form)
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -46,28 +47,41 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = UpdatePostForm
 
     def form_valid(self, form):
-        """Function to set signed in user as author of form to post"""
+        """Function to set signed in user as author of the form to post"""
         form.instance.author = self.request.user
-        return super().form_valid(form)  # set author before running
+        return super().form_valid(form)
 
     def test_func(self):
-        "To ensure only the author of the post can update it"
-        post = self.get_object()  # get the post to be update
-        # ensure the logged in user is the author
+        """
+        To get the post to be updated
+        and ensure only the author of the post can update it
+        """
+        post = self.get_object()
         if self.request.user == post.author:
-            return True  # if yes then update
-        return False  # if not then 403 forbidden
+            return True
+        return False
 
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    """ Class to allow the user of the post to delete it """
+    """
+    Class to allow the user of the post to delete it 
+    and then redirect back to home page
+    """
     model = Post
-    success_url = '/'  # to redirect to home page after deleted
+    success_url = '/'
 
     def test_func(self):
-        "To ensure only the author of the post can delete it"
-        post = self.get_object()  # get the post to be update
-        # ensure the logged in user is the author
+        """
+        To get the post to be updated
+        and ensure only the author of the post can delete it
+        """
+        post = self.get_object()
         if self.request.user == post.author:
-            return True  # if yes then delete
-        return False  # if not then 403 forbidden
+            return True
+        return False
+
+
+class PostCommentView(CreateView):
+    """ Class to allow logged in users to comment """
+    model = Post
+    form_class = CommentForm
