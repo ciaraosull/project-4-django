@@ -53,7 +53,7 @@ main {
 
 .content-item {
     padding: 30px;
-    margin: 30px 0;
+    margin: 30px;
     background-color: #FFFFFF;
 }
 
@@ -130,7 +130,7 @@ main {
     margin: 0;
 }
 
-#comments .media>.pull-left {
+#comments .media>.float-start {
     margin-right: 20px;
 }
 
