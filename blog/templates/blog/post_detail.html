@@ -32,6 +32,7 @@
             <div class="row">
                 <div class="col">
                     <form method="POST">
+                        {%  csrf_token  %}
                         <div class="d-flex flex-wrap justify-content-between">
                             <h3>Add Comment As: {{  user.username  }}</h3>
                             <button type="submit" class="btn btn-primary">Submit Comment</button>
@@ -50,6 +51,16 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+{%  else %}
+
+<section class="container d-flex justify-content-center">
+    <div class="content-item d-flex justify-content-center" id="comments">
+            <h3>Leave a Comment</h3>
+            <a class="btn btn-primary ms-3" href="{%  url 'account_login'  %}" aria-label="Go to Log In Page">Login
+            </a>
     </div>
 </section>
 
