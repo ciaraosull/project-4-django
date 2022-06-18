@@ -5,10 +5,18 @@
 
 {%  load crispy_forms_tags  %}
 
-<h1>Welcome to CodeSea</h1>
-<h2>A Peer Code Review Platform</h2>
 <h2>{{  object.project_title  }}</h2>
 <p>By <strong>{{  object.author  }}</strong> on <i>{{  object.date_posted  }}</i></p>
+
+{%  if object.author == user  %}
+<div class="form-group d-flex">
+    <a class="btn btn-primary me-3" href="{%  url 'post-update' object.slug  %}"
+        aria-label="Update Post">Update Post</a>
+    <a class="btn btn-danger ms-3" href="{%  url 'post-delete' object.slug  %}"
+        aria-label="Delete Post">Delete Post</a>
+</div>
+{%  endif  %}
+
 <p>{{  object.project_description | safe  }}</p>
 <p>Deployed Site: <a href="{{  object.deployed_link  }}" target="_blank"
         aria-label="Go to the deployed site link">{{  object.deployed_link  }}</a></p>
@@ -16,14 +24,6 @@
         aria-label="Go to the code repository site">{{  object.code_repository  }}</a></p>
 <p>{{  object.other_relevant_information  }}</p>
 
-{%  if object.author == user  %}
-<div class="form-group d-flex justify-content-around">
-    <a class="btn btn-info btn-lg mt-4 me-3" href="{%  url 'post-update' object.slug  %}"
-        aria-label="Update Post">Update Post</a>
-    <a class="btn btn-danger btn-lg mt-4 ms-3" href="{%  url 'post-delete' object.slug  %}"
-        aria-label="Delete Post">Delete Post</a>
-</div>
-{%  endif  %}
 
 {%  if user.is_authenticated  %}
 <section class="container d-flex justify-content-center mt-5">
