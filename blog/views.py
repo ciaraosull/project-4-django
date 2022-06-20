@@ -38,7 +38,6 @@ class PostDetailView(DetailView):
         save the details of the comment form and include username
         """
         post = get_object_or_404(Post, slug=slug)
-
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -52,26 +51,17 @@ class PostDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         """
-        Populate a dictionary with mapped variables
-        to reference in post_detail template in order to display the comments
-        and the comment form if the user is logged in
+        To display the comment form and
+        paginate comments list if the user is logged in
         """
-        context = super().get_context_data(**kwargs)
+        context = super().get_context_data()
+        comments = Comment.objects.all()
+        paginator = Paginator(comments, 6)
         page = self.request.GET.get('page')
-        paginator = Paginator(self.object.comments.all(), 3)
-        slug = self.kwargs['slug']
-        post = get_object_or_404(Post, slug=slug)
-
-        comments = self.object.comments.all()
-
-        context['comment_form'] = CommentForm()
+        context['comments'] = paginator.get_page(page)
         context['page'] = page
         context['paginator'] = paginator
-        context['object_list'] = context['paginator'].get_page(context['page'])
-        context['page_obj'] = paginator.get_page(page)
-        context['post'] = post
-        context['comments'] = comments
-
+        context['comment_form'] = CommentForm()
         return context
 
 
