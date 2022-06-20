@@ -3,6 +3,7 @@ Views to show the list of posts,
 details of each post
 create and delete posts
 """
+from django.shortcuts import render
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
@@ -12,7 +13,8 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Post
+from django.core.paginator import Paginator
+from .models import Post, Comment
 from .forms import CreatePostForm, UpdatePostForm, CommentForm
 
 
@@ -57,6 +59,12 @@ class PostDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['comment_form'] = CommentForm()
         return context
+
+
+class CommentList(ListView):
+    """Comments view"""
+    model = Comment
+    paginate_by = 2
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
