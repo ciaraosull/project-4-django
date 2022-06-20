@@ -10,10 +10,9 @@
 
 {%  if object.author == user  %}
 <div class="form-group d-flex">
-    <a class="btn btn-primary me-3" href="{%  url 'post-update' object.slug  %}"
-        aria-label="Update Post">Update Post</a>
-    <a class="btn btn-danger ms-3" href="{%  url 'post-delete' object.slug  %}"
-        aria-label="Delete Post">Delete Post</a>
+    <a class="btn btn-primary me-3" href="{%  url 'post-update' object.slug  %}" aria-label="Update Post">Update
+        Post</a>
+    <a class="btn btn-danger ms-3" href="{%  url 'post-delete' object.slug  %}" aria-label="Delete Post">Delete Post</a>
 </div>
 {%  endif  %}
 
@@ -59,7 +58,8 @@
 <section class="container d-flex justify-content-center">
     <div class="content-item d-flex justify-content-center" id="comments">
         <h3>Leave a Comment</h3>
-        <a class="btn btn-primary ms-3" href="{%  url 'account_login'  %}?next={{request.path}}" aria-label="Go to Log In Page">Login
+        <a class="btn btn-primary ms-3" href="{%  url 'account_login'  %}?next={{request.path}}"
+            aria-label="Go to Log In Page">Login
         </a>
     </div>
 </section>
@@ -68,7 +68,7 @@
 
 <section class="container mt-3 pt-3 comments-section">
     <h3>Number of Comments Here</h3>
-    {% for comment in post.comments.all %}
+    {% for comment in comments %}
     <div class="row pt-3">
         <div class="col-md-2"></div>
         <div class="pt-3 col-md-2 text-md-start text-sm-center">
@@ -76,39 +76,35 @@
         </div>
         <div class="comments-list pt-3 col-md-6 text-md-start text-sm-center">
             <h4 class="mt-0">{{  comment.name  }}</h2>
-            <ul class="list-unstyled">
-                <li><i class="fa fa-calendar"></i> <i>{{  comment.date_posted  }}</i></li>
-            </ul>
-            <p class="lead">{{ comment.your_comment  }}</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-calendar"></i> <i>{{  comment.date_posted  }}</i></li>
+                </ul>
+                <p class="lead">{{ comment.your_comment  }}</p>
         </div>
         <div class="col-md-2"></div>
     </div>
     {% endfor %}
+
+    <!-- Pagination -->
+    {%  if page_obj.has_previous  %}
+    <a class="btn btn-outline-info mb4" href="?page=1">First</a>
+    <a class="btn btn-outline-info mb4" href="?page={{  page_obj.previous_page_number  }}">Previous</a>
+    {%  endif  %}
+
+    {%  for num in page_obj.paginator.page_range  %}
+    {%  if page_obj.number == num  %}
+    <a class="btn btn-info mb4" href="?page={{  num  }}">{{  num  }}</a>
+    {%  elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'  %}
+    <a class="btn btn-outline-info mb4" href="?page={{  num  }}">{{  num  }}</a>
+    {%  endif  %}
+    {%  endfor  %}
+
+    {%  if page_obj.has_next  %}
+    <a class="btn btn-outline-info mb4" href="?page={{  page.obj.next_page_number  }}">Next</a>
+    <a class="btn btn-outline-info mb4" href="?page={{  page_obj.paginator.num_pages  }}">Last</a>
+    {%  endif  %}
+
 </section>
-
-<!-- Pagination -->
-
-{%  if is_paginated  %}
-
-{%  if page_obj.has_previous  %}
-<a class="btn btn-outline-info mb4" href="?page=1">First</a>
-<a class="btn btn-outline-info mb4" href="?page={{  page_obj.previous_page_number  }}">Previous</a>
-{%  endif  %}
-
-{%  for num in page_obj.paginator.page_range  %}
-{%  if page_obj.number == num  %}
-<a class="btn btn-info mb4" href="?page={{  num  }}">{{  num  }}</a>
-{%  elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'  %}
-<a class="btn btn-outline-info mb4" href="?page={{  num  }}">{{  num  }}</a>
-{%  endif  %}
-{%  endfor  %}
-
-{%  if page_obj.has_next  %}
-<a class="btn btn-outline-info mb4" href="?page={{  page.obj.next_page_number  }}">Next</a>
-<a class="btn btn-outline-info mb4" href="?page={{  page_obj.paginator.num_pages  }}">Last</a>
-{%  endif  %}
-
-{%  endif  %}
 
 
 {%  endblock content  %}

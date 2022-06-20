@@ -57,14 +57,22 @@ class PostDetailView(DetailView):
         and the comment form if the user is logged in
         """
         context = super().get_context_data(**kwargs)
+        page = self.request.GET.get('page')
+        paginator = Paginator(self.object.comments.all(), 3)
+        slug = self.kwargs['slug']
+        post = get_object_or_404(Post, slug=slug)
+
+        comments = self.object.comments.all()
+
         context['comment_form'] = CommentForm()
+        context['page'] = page
+        context['paginator'] = paginator
+        context['object_list'] = context['paginator'].get_page(context['page'])
+        context['page_obj'] = paginator.get_page(page)
+        context['post'] = post
+        context['comments'] = comments
+
         return context
-
-
-class CommentList(ListView):
-    """Comments view"""
-    model = Comment
-    paginate_by = 2
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
