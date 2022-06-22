@@ -8,7 +8,12 @@
     <div class="row pt-3">
         <div class="col-md-2"></div>
         <div class="pt-3 col-md-2 text-md-start text-sm-center">
+            {%  if user.profile.profile_image.url  %}
             <img class="rounded-circle" src="{{ user.profile.profile_image.url  }}" width="150" alt="Profile Image">
+            {%  else  %}
+            <img class="rounded-circle" src="..//..//../static/images/profile/profile_default_ image.webp" width="150" alt="Default Profile Image">
+
+            {%  endif  %}
         </div>
         <div class="comments-list pt-3 col-md-6 text-md-start text-sm-center">
                 <p>{{  user.email  }}</p>
