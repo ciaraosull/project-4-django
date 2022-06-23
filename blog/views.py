@@ -42,6 +42,7 @@ class PostDetailView(DetailView):
 
         if comment_form.is_valid():
             comment_form.instance.name = request.user.username
+            comment_form.instance.post = post
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
@@ -55,7 +56,9 @@ class PostDetailView(DetailView):
         paginate comments list if the user is logged in
         """
         context = super().get_context_data()
-        comments = Comment.objects.all()
+        slug = self.kwargs['slug']
+        post = get_object_or_404(Post, slug=slug)
+        comments = Comment.objects.filter(post=post)
         paginator = Paginator(comments, 6)
         page = self.request.GET.get('page')
         context['comments'] = paginator.get_page(page)
