@@ -83,7 +83,9 @@
     <div class="row pt-3">
         <div class="col-md-2"></div>
         <div class="pt-3 col-md-2 text-md-start text-sm-center">
-            <img class="rounded-circle" src="#" width="150" alt="Profile Image">
+            <img class="rounded-circle" src="{{ comment.name.profile.profile_image.url }}" alt="Profile Image">
+            <img class="rounded-circle" src="../../../static/images/profile/profile_default_ image.webp" width="150"
+                alt="Default Profile Image">
         </div>
         <div class="comments-list pt-3 col-md-6 text-md-start text-sm-center">
             <h4 class="mt-0">{{  comment.name  }}</h2>
