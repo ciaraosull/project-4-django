@@ -1,8 +1,8 @@
 """Views to show the Profile Page"""
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .forms import UserUpdateForm, ProfileUpdateForm
-
 
 
 @login_required
@@ -22,7 +22,8 @@ def profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            return redirect('profile')  # redirect so get request sent after reload
+            messages.success(request, 'Profile Updated Successfully')
+            return redirect('profile')  # get request sent after reload
 
     else:
         user_form = UserUpdateForm(instance=request.user)
