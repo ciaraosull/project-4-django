@@ -21,4 +21,4 @@ class ProfileUpdateForm(forms.ModelForm):
         Get profile model and choose fields to display
         """
         model = Profile
-        field = ['image']
+        fields = ['profile_image']

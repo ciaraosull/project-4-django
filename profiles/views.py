@@ -1,18 +1,32 @@
 """Views to show the Profile Page"""
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.views.generic import UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
-from .forms import  UserUpdateForm, ProfileUpdateForm
+from .forms import UserUpdateForm, ProfileUpdateForm
 
 
 
 @login_required
 def profile(request):
-    """Function to return the users profile template"""
-    user_form = UserUpdateForm()
-    profile_form = ProfileUpdateForm()
+    """
+    Return profile update image form &
+    user update details form to template &
+    pre-populate with the users details,
+    if both valid then save
+    """
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = ProfileUpdateForm(
+            request.POST,
+            request.FILES,  # file data from image being uploaded
+            instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return redirect('profile')  # redirect so get request sent after reload
+
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
 
     context = {
         'user_form': user_form,
