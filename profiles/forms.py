@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 
-class UserProfileUpdateForm(forms.ModelForm):
+class UserUpdateForm(forms.ModelForm):
     """Create User Profile Update form"""
     email = forms.EmailField()
 
