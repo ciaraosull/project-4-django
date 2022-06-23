@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Welcome to CodeSea</h1>
-<h2>A Peer Code Review Platform</h2>
+    <h1>Welcome to CodeSea</h1>
+
+    <h2>A Peer Code Review Platform</h2>
 {%  for post in posts  %}
+
 
 <a href="{% url 'post-detail' post.slug  %}">
     <h2>{{  post.project_title  }}</h2>
