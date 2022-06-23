@@ -3,9 +3,9 @@ Views to show the list of posts,
 details of each post
 create and delete posts
 """
-from django.shortcuts import render
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib import messages
 from django.views.generic import (
     ListView,
     DetailView,
@@ -46,6 +46,7 @@ class PostDetailView(DetailView):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(request, 'Your Comment Was Successfully Added')
             return redirect('post-detail', post.slug)
         else:
             comment_form = CommentForm()
