@@ -102,10 +102,10 @@
 
                 {%  if comment.name == user  %}
                 <div class="form-group d-flex">
-                    <a class="btn btn-primary btn-sm me-3" href="#"
-                        aria-label="Update Post">Update</a>
+                    <a class="btn btn-primary btn-sm me-3" href="{%  url 'comment-update' comment.pk  %}"
+                        aria-label="Update Comment">Update</a>
                     <a class="btn btn-danger btn-sm ms-3" href="{%  url 'comment-delete' comment.pk  %}"
-                        aria-label="Delete Post">Delete</a>
+                        aria-label="Delete Comment">Delete</a>
                 </div>
                 {%  endif  %}
         </div>

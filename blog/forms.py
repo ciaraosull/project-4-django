@@ -44,6 +44,17 @@ class UpdatePostForm(forms.ModelForm):
             }
 
 
+class UpdateCommentForm(forms.ModelForm):
+    """Create a form for users to comment on other posts"""
+    class Meta:
+        """
+        To state what model to use
+        and what fields to display on the form
+        """
+        model = Comment
+        fields = ('your_comment',)
+
+
 class CommentForm(forms.ModelForm):
     """Create a form for users to comment on other posts"""
     class Meta:

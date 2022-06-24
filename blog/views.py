@@ -1,7 +1,5 @@
 """
-Views to show the list of posts,
-details of each post
-create and delete posts
+Imports for Post & Comments Views
 """
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -16,7 +14,12 @@ from django.views.generic import (
 )
 from django.core.paginator import Paginator
 from .models import Post, Comment
-from .forms import CreatePostForm, UpdatePostForm, CommentForm
+from .forms import (
+    CreatePostForm,
+    UpdatePostForm,
+    CommentForm,
+    UpdateCommentForm
+)
 
 
 class PostListView(ListView):
@@ -120,6 +123,32 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
+
+
+class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """ Class to allow logged in users to update comments """
+    model = Comment
+    form_class = UpdateCommentForm
+
+    def form_valid(self, form):
+        """Function to set signed in user as author of the comment form to post"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        """
+        To get the comment to be updated
+        and ensure only the author of the post can update it
+        """
+        comment = self.get_object()
+        if self.request.user == comment.name:
+            return True
+        return False
+    
+    def get_success_url(self):
+        """ On successful comment update, return to post-detail view"""
+        post = self.object.post
+        return reverse_lazy('post-detail', kwargs={'slug': post.slug})
 
 
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
