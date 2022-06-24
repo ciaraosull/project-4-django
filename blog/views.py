@@ -6,6 +6,7 @@ create and delete posts
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
+from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
     DetailView,
@@ -112,10 +113,32 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         """
-        To get the post to be updated
+        To get the post to be deleted
         and ensure only the author of the post can delete it
         """
         post = self.get_object()
         if self.request.user == post.author:
             return True
         return False
+
+
+class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """
+    Allow user who created comment to delete it.
+    """
+    model = Comment
+
+    def test_func(self):
+        """
+        To get the comment to be deleted
+        and ensure only the author of the comment can delete it
+        """
+        comment = self.get_object()
+        if self.request.user == comment.name:
+            return True
+        return False
+
+    def get_success_url(self):
+        # On successful comment deletion, stay on same page
+        post = self.object.post
+        return reverse_lazy('post-detail', kwargs={'slug': post.slug})

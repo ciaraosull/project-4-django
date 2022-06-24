@@ -1,0 +1,27 @@
+{%  extends "base.html"  %}
+
+{%  block content  %}
+
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="row justify-content-md-center">
+        <div class="col-md-12">
+            <form method="POST">
+                {%  csrf_token  %}
+                <fieldset class="form-group d-flex justify-content-center">
+                    <legend class="mb-4">
+                        <h2>Delete Post</h2>
+                        <h4>Do you want to delete your comment posted:  <em>{{  comment.date_posted  }}</em>?</h4>
+                    </legend>
+                </fieldset>
+                <div class="form-group d-flex justify-content-around">
+                    <button class="btn btn-danger btn-lg mt-4" type="submit">Delete</button>
+                    <a class="btn btn-info btn-lg mt-4" href="{%  url 'blog-home'  %}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{%  endblock content  %}

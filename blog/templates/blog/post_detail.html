@@ -85,7 +85,8 @@
         <div class="col-md-2"></div>
         <div class="pt-3 col-md-2 text-md-start text-sm-center">
             {%  if comment.name.profile.profile_image.url  %}
-            <img class="rounded-circle" src="{{comment.name.profile.profile_image.url }}" width="150" alt="Profile Image">
+            <img class="rounded-circle" src="{{comment.name.profile.profile_image.url }}" width="150"
+                alt="Profile Image">
             {%  else  %}
             <img class="rounded-circle" src="../../../static/images/profile/profile_default_ image.webp" width="150"
                 alt="Default Profile Image">
@@ -94,10 +95,19 @@
         <div class="comments-list pt-3 col-md-6 text-md-start text-sm-center">
 
             <h4 class="mt-0">{{  comment.name  }}</h2>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-calendar"></i> <i>{{  comment.date_posted  }}</i></li>
-                    </ul>
-                    <p>{{ comment.your_comment | linebreaks  }}</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-calendar"></i> <i>{{  comment.date_posted  }}</i></li>
+                </ul>
+                <p>{{ comment.your_comment | linebreaks  }}</p>
+
+                {%  if comment.name == user  %}
+                <div class="form-group d-flex">
+                    <a class="btn btn-primary btn-sm me-3" href="#"
+                        aria-label="Update Post">Update</a>
+                    <a class="btn btn-danger btn-sm ms-3" href="{%  url 'comment-delete' comment.pk  %}"
+                        aria-label="Delete Post">Delete</a>
+                </div>
+                {%  endif  %}
         </div>
         <div class="col-md-2"></div>
     </div>
