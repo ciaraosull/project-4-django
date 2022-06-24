@@ -139,6 +139,6 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
     def get_success_url(self):
-        # On successful comment deletion, stay on same page
+        """ On successful comment deletion, stay on same page"""
         post = self.object.post
         return reverse_lazy('post-detail', kwargs={'slug': post.slug})
