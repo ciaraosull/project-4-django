@@ -1,11 +1,19 @@
 {% extends "base.html" %}
-{% load static %}
+
 {% block content %}
 
+{% load static %}
 
-<h1>Welcome to CodeSea</h1>
+<section class="landing-video">
+    <video src="{% static 'images/media/landing-video.mp4' %}" id="background-video" muted autoplay></video>
+</section>
 
-<h2>A Peer Code Review Platform</h2>
+
+<section>
+    <h1>Welcome to CodeSea</h1>
+    <h2>A Peer Code Review Platform</h2>
+
+</section>
 
 <!-- Cards to hold Posts -->
 <section class="container d-flex justify-content-center">
