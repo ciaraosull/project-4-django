@@ -30,11 +30,11 @@ main {
 }
 
 .nav-link.active {
-    color: #2868d6;
+    color: #a56ac0;
 }
 
 #navbarNav a:hover {
-    color: #0277bd;
+    color: #a56ac0;
     letter-spacing: 1px;
     border-bottom: 1px solid;
 }
@@ -63,12 +63,10 @@ main {
     border-radius: 50px
 }
 
-#linkedin-link {
-    background-color: #333333;
-}
-
+#linkedin-link,
 #github-link {
     background-color: #333333;
+    color: #f5f5f5 !important;
 }
 
 /*home page section */
@@ -112,10 +110,14 @@ video {
 It is given a negative margin from the top and a positive identical height
 that matches the height of the header.  This allows some room on top of the 
 section so it does not sit behind the fixed header */
-#post-list-anchor {
+#post-list {
     margin-top: -108px;
     height: 108px;
   }
+
+.posts a {
+    color: #a56ac0 !important;
+}
 
 .content-area {
     width: 100%;
