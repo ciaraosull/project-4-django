@@ -4,6 +4,7 @@
 
 {% load static %}
 
+<!-- Landing Page Video & Main Title Text -->
 <section id="landing-page">
     <video src="{% static 'images/media/landing-video.mp4' %}" id="background-video" muted autoplay></video>
     <div class="landing-text">
@@ -16,68 +17,73 @@
 </section>
 
 
-<!-- Cards to hold Posts -->
+<!-- List of Posts -->
 <div class="content-area">
     <div class="main-content-container">
-    <section class="container d-flex justify-content-center">
-        <div>
-            {%  for post in posts  %}
-            <div class=" card mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 800px;">
-                <div class="row g-0">
-                    <div class="col-md-3">
-                        {%  if post.author.profile.profile_image.url  %}
-                        <img class="rounded-circle border border-3 shadow p-3 mb-5 bg-body rounded mx-auto d-block mt-3"
-                            src="{{post.author.profile.profile_image.url }}" width="150" alt="Profile Image">
-                        {%  else  %}
-                        <img class="rounded-circle border border-3 shadow p-3 mb-5 bg-body rounded mx-auto d-block mt-3"
-                            src="../../../static/images/profile/profile_default_ image.webp" width="150"
-                            alt="Default Profile Image">
-                        {%  endif  %}
-                    </div>
-                    <div class="col-md-9 text-md-start text-sm-center">
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a class="text-decoration-none"
-                                    href="{% url 'post-detail' post.slug  %}">{{  post.project_title  }}
-                                </a>
-                            </h4>
-                            <p class="card-text"><small class="text-muted"><strong>{{  post.author  }}</strong>
-                                    <i>{{  post.date_posted  }}</i>
-                                </small></p>
-                            <p class="card-text">{{  post.project_description | striptags | slice:100 | safe  }}.......
-                            </p>
+        <section class="container d-flex justify-content-center">
+            <div>
+                {%  for post in posts  %}
+                <div class=" card mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 800px;">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            {%  if post.author.profile.profile_image.url  %}
+                            <img class="rounded-circle border border-3 shadow p-3 mb-5 bg-body rounded mx-auto d-block mt-3"
+                                src="{{post.author.profile.profile_image.url }}" width="150" alt="Profile Image">
+                            {%  else  %}
+                            <img class="rounded-circle border border-3 shadow p-3 mb-5 bg-body rounded mx-auto d-block mt-3"
+                                src="../../../static/images/profile/profile_default_ image.webp" width="150"
+                                alt="Default Profile Image">
+                            {%  endif  %}
+                        </div>
+                        <div class="col-md-9 text-md-start text-sm-center">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a class="text-decoration-none"
+                                        href="{% url 'post-detail' post.slug  %}">{{  post.project_title  }}
+                                    </a>
+                                </h4>
+                                <p class="card-text"><small class="text-muted"><strong>{{  post.author  }}</strong>
+                                        <i>{{  post.date_posted  }}</i>
+                                    </small></p>
+                                <p class="card-text">
+                                    {{  post.project_description | striptags | slice:100 | safe  }}.......
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                {%  endfor  %}
+                <div>
+        </section>
+
+        <!-- Posts Pagination -->
+        <div class="d-flex justify-content-end mt-4">
+            {%  if is_paginated  %}
+
+            {%  if page_obj.has_previous  %}
+            <a class="btn btn-primary btn-sm mb4" href="?page=1">First</a>
+            <a class="btn btn-primary btn-sm mb4" href="?page={{  page_obj.previous_page_number  }}">Previous</a>
+            {%  endif  %}
+
+            {%  for num in page_obj.paginator.page_range  %}
+            {%  if page_obj.number == num  %}
+            <a class="btn btn-primary btn-sm mb4" href="?page={{  num  }}">{{  num  }}</a>
+            {%  elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3"  %}
+            <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  num  }}">{{  num  }}</a>
+            {%  endif  %}
             {%  endfor  %}
-            <div>
-    </section>
 
-    <!-- Posts Pagination -->
-    <div class="d-flex justify-content-end mt-4">
-        {%  if is_paginated  %}
+            {%  if page_obj.has_next  %}
+            <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  page.obj.next_page_number  }}">Next</a>
+            <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  page_obj.paginator.num_pages  }}">Last</a>
+            {%  endif  %}
 
-        {%  if page_obj.has_previous  %}
-        <a class="btn btn-primary btn-sm mb4" href="?page=1">First</a>
-        <a class="btn btn-primary btn-sm mb4" href="?page={{  page_obj.previous_page_number  }}">Previous</a>
-        {%  endif  %}
-
-        {%  for num in page_obj.paginator.page_range  %}
-        {%  if page_obj.number == num  %}
-        <a class="btn btn-primary btn-sm mb4" href="?page={{  num  }}">{{  num  }}</a>
-        {%  elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3"  %}
-        <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  num  }}">{{  num  }}</a>
-        {%  endif  %}
-        {%  endfor  %}
-
-        {%  if page_obj.has_next  %}
-        <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  page.obj.next_page_number  }}">Next</a>
-        <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  page_obj.paginator.num_pages  }}">Last</a>
-        {%  endif  %}
-
-        {%  endif  %}
+            {%  endif  %}
+        </div>
     </div>
 </div>
-    {%  endblock content  %}
-</div>
+
+<!-- Empty Div to set relative footer at bottom of home page -->
+<div id="empty-div"></div>
+
+{%  endblock content  %}
