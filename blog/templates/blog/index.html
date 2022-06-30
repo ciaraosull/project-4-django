@@ -11,7 +11,7 @@
         <h1>Welcome to Code Connect</h1>
         <h2>A Peer Code Support Network</h2>
         <div class="explore-button">
-            <a class="btn btn-primary mb4" href="#about-us" aria-label="Go to the about us section">Explore</a>
+            <a class="btn btn-primary mb4" href="#post-list-anchor" aria-label="Go to the post list section">Explore</a>
         </div>
     </div>
 </section>
@@ -20,7 +20,10 @@
 <!-- List of Posts -->
 <div class="content-area">
     <div class="main-content-container">
-        <section class="container d-flex justify-content-center">
+        <!-- Empty div to land the link from thebutton to the post list section 
+                so not blocked by fixed header -->
+        <div id="post-list-anchor"></div>
+        <section class="container d-flex justify-content-center" id="post-list">
             <div>
                 {%  for post in posts  %}
                 <div class=" card mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 800px;">
@@ -57,7 +60,7 @@
         </section>
 
         <!-- Posts Pagination -->
-        <div class="d-flex justify-content-end mt-4">
+        <section class="d-flex justify-content-end mt-4">
             {%  if is_paginated  %}
 
             {%  if page_obj.has_previous  %}
@@ -79,7 +82,7 @@
             {%  endif  %}
 
             {%  endif  %}
-        </div>
+        </section>
     </div>
 </div>
 
