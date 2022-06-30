@@ -11,7 +11,7 @@
         <h1>Welcome to Code Connect</h1>
         <h2>A Peer Code Support Network</h2>
         <div class="explore-button">
-            <a class="btn btn-light mb4" href="#post-list" aria-label="Go to the post list section">Explore</a>
+            <a class="btn btn-light mb4" href="#about-us" aria-label="Go to the about us section">Explore</a>
         </div>
     </div>
 </section>
@@ -20,7 +20,20 @@
 <!-- List of Posts -->
 <div class="content-area">
     <div class="main-content-container">
-        <!-- Empty div to land the link from thebutton to the post list section 
+         <!-- Empty div to land the link from the explore button & nav to the about us section 
+                so not blocked by fixed header -->
+                <div id="about-us"></div>
+        <section class="card mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 800px;">
+            <h4>About Us</h4>
+            <p>Code Connect is a Software Development Peer Support Network.
+                Our aim is to allow Software Developers who are currently working alone on a private project or
+                perhaps working alone on projects for college to find a supportive network for peer code review.
+                Post your project for others to use, review and offer supportive feedback on.
+                Browse the list of projects and offer support to others. It can be as simple as testing all links work, or
+                responsiveness on certain devices to reviewing their code and offering supportive advice.</p>
+            <p>See below for a list of the latest project posts</p>
+        </section>
+        <!-- Empty div to land the link from the pagination page to the post list section 
                 so not blocked by fixed header -->
         <div id="post-list"></div>
         <section class="posts container d-flex justify-content-center">

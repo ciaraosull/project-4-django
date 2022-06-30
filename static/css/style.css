@@ -110,7 +110,8 @@ video {
 It is given a negative margin from the top and a positive identical height
 that matches the height of the header.  This allows some room on top of the 
 section so it does not sit behind the fixed header */
-#post-list {
+#post-list,
+#about-us {
     margin-top: -108px;
     height: 108px;
   }
