@@ -10,15 +10,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A platfrom to post and review software development projects">
-    <meta name="keywords" content="softeware development, peer code review">
+    <meta name="keywords" content="code connect, softeware development, peer code review">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Favicon link -->
-
-    <!-- Any Google Fonts links -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
 
     <!-- Any Fontawesome links -->
     <script src="https://kit.fontawesome.com/b83175b9a4.js" crossorigin="anonymous"></script>
@@ -26,7 +25,7 @@
     <!-- My CSS link -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <title> CodeSea
+    <title> Code Connect
         {% block title %}
         {% endblock title %}
     </title>
@@ -37,8 +36,8 @@
     <nav class="navbar fixed-top navbar-expand-md navbar-light">
         <div class="container">
             <a class="navbar-brand mb-0" href="{% url 'blog-home' %}">
-                <img src="https://res.cloudinary.com/ciara0s1980/image/upload/c_scale,w_113/v1652620673/logo_olndbb.gif"
-                    alt="Code Sea Logo">
+                <img src=""
+                    alt="Code Connect Logo">
             </a>
             <!-- Bootstrap classes to collapse nav bar on smaller screens-->
             <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
