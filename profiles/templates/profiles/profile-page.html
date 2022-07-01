@@ -4,22 +4,22 @@
 
 {% block content %}
 
-<section class="container mt-3 pt-3">
-  <h3>Profile Page for {{  user.username  }}</h3>
-  <div class="row pt-3">
-    <div class="col-md-2"></div>
-    <div class="pt-3 col-md-2 text-md-start text-sm-center">
-      {%  if user.profile.profile_image.url  %}
-      <img class="rounded-circle" src="{{ user.profile.profile_image.url  }}" width="150" alt="Profile Image">
-      {%  else  %}
-      <img class="rounded-circle" src="..//..//../static/images/profile/profile_default_ image.webp" width="150"
-        alt="Default Profile Image">
+<section class="posts container">
 
-      {%  endif  %}
-    </div>
-    <div class="comments-list pt-3 col-md-6 text-md-start text-sm-center">
-      <div class="row">
-        <div class="col-md-8 offset-md-2">
+  <div class=" card mb-3 shadow p-2 mb-3 bg-body rounded" style="max-width: 1000px;">
+    <div class="row g-0">
+      <div class="col-md-3">
+        {%  if user.profile.profile_image.url  %}
+        <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
+          src="{{ user.profile.profile_image.url  }}" width="100" alt="Profile Image">
+        {%  else  %}
+        <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
+          src="..//..//../static/images/profile/profile_default_ image.webp" width="100" alt="Default Profile Image">
+        {%  endif  %}
+      </div>
+      <div class="col-md-9 text-md-start text-center">
+        <div class="card-body">
+          <h4 class="card-title">Profile Page for {{  user.username  }}</h4>
           <form class="signup" id="signup_form" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ user_form|crispy }}
