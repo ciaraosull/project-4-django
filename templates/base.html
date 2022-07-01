@@ -51,7 +51,7 @@
                         <a class="nav-link active" href="{% url 'blog-home' %}" aria-label="Go Home Page">Home</a>
                     </li>
                     <li class="nav-item-active">
-                        <a href="#about-us" class="nav-link" aria-label="Go About Page">About</a>
+                        <a href="{% url 'blog-home' %}#about-us" class="nav-link" aria-label="Go About Page">About</a>
                     </li>
                     {%  if user.is_authenticated  %}
                     <li class="nav-item-active">
