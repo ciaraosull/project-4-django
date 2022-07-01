@@ -116,6 +116,10 @@ section so it does not sit behind the fixed header */
     height: 108px;
   }
 
+.about-us h4 {
+    color: #a56ac0;
+}
+
 .posts a {
     color: #a56ac0 !important;
 }
