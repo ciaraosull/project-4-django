@@ -205,6 +205,18 @@ section so it does not sit behind the fixed header */
     border-bottom: 1px dashed #DDDDDD;
 }
 
+/*alerts */
 .alert-success {
     z-index: 1;
+}
+
+/*buttons */
+.btn-primary {
+    background-color: #a56ac0  !important;
+    border-color: #a56ac0  !important;
+}
+
+.sign-up-link {
+    color: #a56ac0 !important;
+    font-weight: bold;
 }

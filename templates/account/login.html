@@ -34,7 +34,7 @@
 
       {% else %}
       <p>{% blocktrans %}If you have not created an account yet, then please
-        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+        <a class="sign-up-link" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
       {% endif %}
 
     </div>
@@ -49,9 +49,6 @@
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
 
-        <div class="mt-2">
-          <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        </div>
         <div>
           <button class="btn btn-primary btn-lg mt-4" type="submit">{% trans "Sign In" %}</button>
         </div>
