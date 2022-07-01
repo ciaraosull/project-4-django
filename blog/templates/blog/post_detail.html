@@ -5,24 +5,32 @@
 
 {%  load crispy_forms_tags  %}
 
-<h2>{{  object.project_title  }}</h2>
-<p>By <strong>{{  object.author  }}</strong> on <i>{{  object.date_posted  }}</i></p>
 
-{%  if object.author == user  %}
-<div class="form-group d-flex">
-    <a class="btn btn-primary btn-sm me-3" href="{%  url 'post-update' object.slug  %}" aria-label="Update Post">Update
-        Post</a>
-    <a class="btn btn-danger btn-sm ms-3" href="{%  url 'post-delete' object.slug  %}" aria-label="Delete Post">Delete
-        Post</a>
-</div>
-{%  endif  %}
+<section class="container d-flex justify-content-center" style="max-width: 1000px;">
+    <div class="about-us card ps-5 pe-5 mb-3 shadow p-3 mb-5 bg-body rounded">
 
-<p>{{  object.project_description | safe  }}</p>
-<p>Deployed Site: <a href="{{  object.deployed_link  }}" target="_blank"
-        aria-label="Go to the deployed site link">{{  object.deployed_link  }}</a></p>
-<p>Code Repository: <a href="{{  object.code_repository  }}" target="_blank"
-        aria-label="Go to the code repository site">{{  object.code_repository  }}</a></p>
-<p>{{  object.other_relevant_information  }}</p>
+        <h2>{{  object.project_title  }}</h2>
+        <p>By <strong>{{  object.author  }}</strong> on <i>{{  object.date_posted  }}</i></p>
+
+        {%  if object.author == user  %}
+        <div class="form-group d-flex">
+            <a class="btn btn-primary btn-sm me-3" href="{%  url 'post-update' object.slug  %}"
+                aria-label="Update Post">Update
+                Post</a>
+            <a class="btn btn-danger btn-sm ms-3" href="{%  url 'post-delete' object.slug  %}"
+                aria-label="Delete Post">Delete
+                Post</a>
+        </div>
+        {%  endif  %}
+
+        <p>{{  object.project_description | safe  }}</p>
+        <p>Deployed Site: <a href="{{  object.deployed_link  }}" target="_blank"
+                aria-label="Go to the deployed site link">{{  object.deployed_link  }}</a></p>
+        <p>Code Repository: <a href="{{  object.code_repository  }}" target="_blank"
+                aria-label="Go to the code repository site">{{  object.code_repository  }}</a></p>
+        <p>{{  object.other_relevant_information  }}</p>
+    </div>
+</section>
 
 <!-- Add Comment Section -->
 {%  if user.is_authenticated  %}
@@ -35,17 +43,17 @@
                         {%  csrf_token  %}
                         <div class="d-flex flex-wrap justify-content-between mb-3">
                             <h3>Add Comment As: {{  user.username  }}</h3>
-                            <h4 class="mt-0">{{  comment.name }}</h2>
+                            <h4 class="mt-0">{{  comment.name }}</h4>
                         </div>
                         <fieldset class="form-group">
                             <div class="row d-flex flex-wrap justify-content-between mb-3">
                                 <div class="col-sm-3 col-lg-2 hidden-xs">
                                     {%  if user.profile.profile_image.url  %}
-                                    <img class="rounded-circle" src="{{ user.profile.profile_image.url  }}" width="150"
+                                    <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3" src="{{ user.profile.profile_image.url  }}" width="100"
                                         alt="Profile Image">
                                     {%  else  %}
-                                    <img class="rounded-circle"
-                                        src="../../../static/images/profile/profile_default_ image.webp" width="150"
+                                    <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
+                                        src="../../../static/images/profile/profile_default_ image.webp" width="100"
                                         alt="Default Profile Image">
                                     {%  endif  %}
                                 </div>
@@ -86,10 +94,10 @@
         <div class="col-md-2"></div>
         <div class="pt-3 col-md-2 text-md-start text-sm-center">
             {%  if comment.name.profile.profile_image.url  %}
-            <img class="rounded-circle" src="{{comment.name.profile.profile_image.url }}" width="150"
+            <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3" src="{{comment.name.profile.profile_image.url }}" width="100"
                 alt="Profile Image">
             {%  else  %}
-            <img class="rounded-circle" src="../../../static/images/profile/profile_default_ image.webp" width="150"
+            <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3" src="../../../static/images/profile/profile_default_ image.webp" width="100"
                 alt="Default Profile Image">
             {%  endif  %}
         </div>
