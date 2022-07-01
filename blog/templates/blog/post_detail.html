@@ -49,8 +49,8 @@
                             <div class="row d-flex flex-wrap justify-content-between mb-3">
                                 <div class="col-sm-3 col-lg-2 hidden-xs">
                                     {%  if user.profile.profile_image.url  %}
-                                    <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3" src="{{ user.profile.profile_image.url  }}" width="100"
-                                        alt="Profile Image">
+                                    <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
+                                        src="{{ user.profile.profile_image.url  }}" width="100" alt="Profile Image">
                                     {%  else  %}
                                     <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
                                         src="../../../static/images/profile/profile_default_ image.webp" width="100"
@@ -92,16 +92,17 @@
     {% for comment in comments %}
     <div class="row pt-3">
         <div class="col-md-2"></div>
-        <div class="pt-3 col-md-2 text-md-start text-sm-center">
+        <div class="col-md-2 text-md-start text-sm-center">
             {%  if comment.name.profile.profile_image.url  %}
-            <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3" src="{{comment.name.profile.profile_image.url }}" width="100"
-                alt="Profile Image">
+            <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
+                src="{{comment.name.profile.profile_image.url }}" width="100" alt="Profile Image">
             {%  else  %}
-            <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3" src="../../../static/images/profile/profile_default_ image.webp" width="100"
+            <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
+                src="../../../static/images/profile/profile_default_ image.webp" width="100"
                 alt="Default Profile Image">
             {%  endif  %}
         </div>
-        <div class="comments-list pt-3 col-md-6 text-md-start text-sm-center">
+        <div class="comments-list pb-3 col-md-6 text-center text-md-start">
 
             <h5 class="mt-0">{{  comment.name  }}</h5>
             <ul class="list-unstyled">
@@ -110,12 +111,10 @@
             <p>{{ comment.your_comment | linebreaks  }}</p>
 
             {%  if comment.name == user  %}
-            <div class="form-group d-flex">
-                <a class="btn btn-primary btn-sm me-3" href="{%  url 'comment-update' comment.pk  %}"
-                    aria-label="Update Comment">Update</a>
-                <a class="btn btn-danger btn-sm ms-3" href="{%  url 'comment-delete' comment.pk  %}"
-                    aria-label="Delete Comment">Delete</a>
-            </div>
+            <a class="btn btn-primary btn-sm me-3" href="{%  url 'comment-update' comment.pk  %}"
+                aria-label="Update Comment">Update</a>
+            <a class="btn btn-danger btn-sm ms-3" href="{%  url 'comment-delete' comment.pk  %}"
+                aria-label="Delete Comment">Delete</a>
             {%  endif  %}
         </div>
         <div class="col-md-2"></div>
