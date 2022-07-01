@@ -16,7 +16,7 @@
                 </fieldset>
                 <div class="form-group d-flex justify-content-around">
                     <button class="btn btn-danger btn-lg mt-4" type="submit">Delete</button>
-                    <a class="btn btn-primary btn-lg mt-4" href="{%  url 'blog-home'  %}#post-list">Cancel</a>
+                    <a class="btn btn-primary btn-lg mt-4" href="{{request.META.HTTP_REFERER}}">Cancel</a>
                 </div>
             </form>
         </div>
