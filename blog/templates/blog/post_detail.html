@@ -124,25 +124,27 @@
 
 <!-- Comments Pagination -->
 
-<div class="d-flex justify-content-end mt-4">
-    {%  if comments.has_previous  %}
-    <a class="btn btn-outline-primary btn-sm mb4" href="?page=1">First</a>
-    <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  comments.previous_page_number  }}">Previous</a>
-    {%  endif  %}
+<section class="paginate container">
+    <div class="d-flex justify-content-end mb-4 me-5 mt-3">
+        {%  if comments.has_previous  %}
+        <a class="btn btn-outline-primary btn-sm mb4" href="?page=1">First</a>
+        <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  comments.previous_page_number  }}">Previous</a>
+        {%  endif  %}
 
-    {%  for num in  comments.paginator.page_range  %}
-    {%  if  comments.number == num  %}
-    <a class="btn btn-primary btn-sm mb4" href="?page={{  num  }}">{{  num  }}</a>
-    {%  elif num >  comments.number|add:'-3' and num  <  comments.number|add:'3'  %}
-    <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  num  }}">{{  num  }}</a>
-    {%  endif  %}
-    {%  endfor  %}
+        {%  for num in  comments.paginator.page_range  %}
+        {%  if  comments.number == num  %}
+        <a class="btn btn-primary btn-sm mb4" href="?page={{  num  }}">{{  num  }}</a>
+        {%  elif num >  comments.number|add:'-3' and num  <  comments.number|add:'3'  %}
+        <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  num  }}">{{  num  }}</a>
+        {%  endif  %}
+        {%  endfor  %}
 
-    {%  if comments.has_next  %}
-    <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  comments.next_page_number  }}">Next</a>
-    <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  comments.paginator.num_pages  }}">Last</a>
-    {%  endif  %}
-</div>
+        {%  if comments.has_next  %}
+        <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  comments.next_page_number  }}">Next</a>
+        <a class="btn btn-outline-primary btn-sm mb4" href="?page={{  comments.paginator.num_pages  }}">Last</a>
+        {%  endif  %}
+    </div>
+</section>
 
 
 {%  endblock content  %}
