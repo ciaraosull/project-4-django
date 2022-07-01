@@ -7,32 +7,39 @@
 <!-- Landing Page Video & Main Title Text -->
 <section id="landing-page">
     <video src="{% static 'images/media/landing-video.mp4' %}" id="background-video" muted autoplay></video>
-    <div class="landing-text">
-        <h1>Welcome to Code Connect</h1>
-        <h2>A Peer Code Support Network</h2>
-        <div class="explore-button">
-            <a class="btn btn-light mb4" href="#about-us" aria-label="Go to the about us section">Explore</a>
+    <div class="container d-flex justify-content-center">
+        <div class="landing-text text-white text-center mt-2">
+            <h1>Welcome to Code Connect</h1>
+            <h2>A Peer Code Support Network</h2>
+            <div class="explore-button text-center mt-3">
+                <a class="btn btn-light mb4" href="#about-us" aria-label="Go to the about us section">Explore</a>
+            </div>
         </div>
     </div>
 </section>
 
 
-<!-- List of Posts -->
+<!--Main Page Slider Area -->
 <div class="content-area">
     <div class="main-content-container">
-         <!-- Empty div to land the link from the explore button & nav to the about us section 
+        <!-- About Us -->
+        <!-- Empty div to land the link from the explore button & nav to the about us section 
                 so not blocked by fixed header -->
-                <div id="about-us"></div>
+        <div id="about-us"></div>
         <section class=" about-us card ps-5 pe-5 mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 800px;">
             <h4 class="pb-3">About Us</h4>
             <p>Code Connect is a Peer Support Network.</p>
-            <p> Our aim is to allow those working alone on software projects to find a supportive network for peer code review.</p>
+            <p> Our aim is to allow those working alone on software projects to find a supportive network for peer code
+                review.</p>
             <p>Post your project for others to use, review and offer supportive feedback on.</p>
-            <p>Browse the list of projects and offer support to others. It can be as simple as testing all links work, and
+            <p>Browse the list of projects and offer support to others. It can be as simple as testing all links work,
+                and
                 responsiveness on certain devices to reviewing code and offering supportive advice.</p>
             <p>A great way to reach out to others, learn and become inspired!</p>
             <p>See below for the list of projects posted</p>
         </section>
+
+        <!-- List of Posts -->
         <!-- Empty div to land the link from the pagination page to the post list section 
                 so not blocked by fixed header -->
         <div id="post-list"></div>
@@ -91,7 +98,8 @@
 
             {%  if page_obj.has_next  %}
             <a class="btn btn-outline-secondary btn-sm mb4 me-1" href="?page={{  page.obj.next_page_number  }}">Next</a>
-            <a class="btn btn-outline-secondary btn-sm mb4 me-1" href="?page={{  page_obj.paginator.num_pages  }}">Last</a>
+            <a class="btn btn-outline-secondary btn-sm mb4 me-1"
+                href="?page={{  page_obj.paginator.num_pages  }}">Last</a>
             {%  endif  %}
 
             {%  endif  %}

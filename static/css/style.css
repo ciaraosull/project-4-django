@@ -101,43 +101,62 @@ video {
     justify-content: center;
     margin: 30px 50px;
     flex-direction: column;
+}
+
+.landing-text h1 {
+    animation: fadeIn 2s;
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
+}
+
+
+.landing-text h2 {
     animation: fadeIn 5s;
     -webkit-animation: fadeIn 5s;
     -moz-animation: fadeIn 5s;
     -o-animation: fadeIn 5s;
     -ms-animation: fadeIn 5s;
-    }
-    @keyframes fadeIn {
-        0% {opacity:0;}
-        60%{opacity: 0;}
-        100% {opacity:1;}
-    }
-    
-    @-moz-keyframes fadeIn {
-        0% {opacity:0;}
-        60%{opacity: 0;}
-        100% {opacity:1;}
-    }
-    
-    @-webkit-keyframes fadeIn {
-        0% {opacity:0;}
-        60%{opacity: 0;}
-        100% {opacity:1;}
-    }
-    
-    @-o-keyframes fadeIn {
-        0% {opacity:0;}
-        60%{opacity: 0;}
-        100% {opacity:1;}
-    }
-    
-    @-ms-keyframes fadeIn {
-        0% {opacity:0;}
-        60%{opacity: 0;}
-        100% {opacity:1;}
-    }
+}
 
+.explore-button {
+    animation: fadeIn 7s;
+    -webkit-animation: fadeIn 7s;
+    -moz-animation: fadeIn 7s;
+    -o-animation: fadeIn 7s;
+    -ms-animation: fadeIn 7s;
+}
 
+@keyframes fadeIn {
+    0% {opacity:0;}
+    60% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity: 0;}
+    60% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    60% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity: 0;}
+    60% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-ms-keyframes fadeIn {
+    0% {opacity: 0;}
+    60% {opacity: 0;}
+    100% {opacity: 1;}
+}
 
 /* The empty div that anchors the link when explore button clicked.
 It is given a negative margin from the top and a positive identical height
@@ -147,7 +166,7 @@ section so it does not sit behind the fixed header */
 #about-us {
     margin-top: -108px;
     height: 108px;
-  }
+}
 
 .about-us h4 {
     color: #a56ac0;
