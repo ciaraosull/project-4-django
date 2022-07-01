@@ -204,3 +204,7 @@ section so it does not sit behind the fixed header */
 .comments-list {
     border-bottom: 1px dashed #DDDDDD;
 }
+
+.alert-success {
+    z-index: 1;
+}

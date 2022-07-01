@@ -1,9 +1,12 @@
 {%  extends "base.html"  %}
+
 {% block body %}
+
+{% load static %}
 
 <main>
   {% if messages %}
-  <div>
+  <div class="messages">
     <strong>Messages:</strong>
     <ul>
       {% for message in messages %}
