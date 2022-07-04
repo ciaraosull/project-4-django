@@ -103,8 +103,8 @@
 
 <!-- List Comments -->
 {%  if comments  %}
-<section class="container mt-3 pt-3 comments-section">
-    <h4>Comment{{ post.comments.count|pluralize }} {{ post.comments.count }}</h4>
+<section class="container mt-3 mb-3 pt-3 comments-section">
+    <h4>Comment{{ post.comments.count|pluralize }}: {{ post.comments.count }}</h4>
     {% for comment in comments %}
     <div class="row pt-3">
         <div class="col-md-2"></div>
@@ -139,7 +139,6 @@
 </section>
 
 <!-- Comments Pagination -->
-
 <section class="paginate container">
     <div class="d-flex justify-content-end mb-4 me-5 mt-3">
         {%  if comments.has_previous  %}
@@ -161,7 +160,15 @@
         {%  endif  %}
     </div>
 </section>
-{%  endif  %}
 
+{%  else %}
+<section class="container d-flex justify-content-center">
+    <div class="card ps-5 pe-5 mb-3 mt-5 shadow p-3 mb-5 bg-body rounded" style="width: 900px;">
+        <div class="content-item d-flex justify-content-center" id="comments">
+            <h4>Be the First to Comment on this Project!</h4>
+        </div>
+    </div>
+</section>
+{%  endif  %}
 
 {%  endblock content  %}
