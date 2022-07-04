@@ -68,6 +68,10 @@
                                 <p class="card-text"><small class="text-muted"><strong>{{  post.author  }}</strong>
                                         <i>{{  post.date_posted  }}</i>
                                     </small></p>
+                                <p class="card-text"><small class="text-muted"><strong>
+                                            Comment{{ post.comments.count|pluralize }}:</strong>
+                                        <i>{{ post.comments.count }}</i>
+                                    </small></p>
                                 <p class="card-text">
                                     {{  post.project_description | striptags | slice:100 | safe  }}.......
                                 </p>
@@ -85,7 +89,8 @@
 
             {%  if page_obj.has_previous  %}
             <a class="btn btn-secondary btn-sm mb4 me-1" href="?page=1#post-list">First</a>
-            <a class="btn btn-secondary btn-sm mb4 me-1" href="?page={{  page_obj.previous_page_number  }}#post-list">Previous</a>
+            <a class="btn btn-secondary btn-sm mb4 me-1"
+                href="?page={{  page_obj.previous_page_number  }}#post-list">Previous</a>
             {%  endif  %}
 
             {%  for num in page_obj.paginator.page_range  %}
@@ -97,7 +102,8 @@
             {%  endfor  %}
 
             {%  if page_obj.has_next  %}
-            <a class="btn btn-outline-secondary btn-sm mb4 me-1" href="?page={{  page.obj.next_page_number  }}#post-list">Next</a>
+            <a class="btn btn-outline-secondary btn-sm mb4 me-1"
+                href="?page={{  page.obj.next_page_number  }}#post-list">Next</a>
             <a class="btn btn-outline-secondary btn-sm mb4 me-1"
                 href="?page={{  page_obj.paginator.num_pages  }}#post-list">Last</a>
             {%  endif  %}
