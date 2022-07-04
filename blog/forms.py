@@ -16,7 +16,6 @@ class CreatePostForm(forms.ModelForm):
             'project_description',
             'deployed_link',
             'code_repository',
-            'other_relevant_information'
             ]
 
         widgets = {
@@ -36,7 +35,6 @@ class UpdatePostForm(forms.ModelForm):
             'project_description',
             'deployed_link',
             'code_repository',
-            'other_relevant_information'
             ]
 
         widgets = {

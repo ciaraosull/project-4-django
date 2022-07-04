@@ -15,7 +15,6 @@ class Post(models.Model):
     project_description = models.TextField()
     deployed_link = models.URLField(max_length=200)
     code_repository = models.URLField(max_length=200, blank=True)
-    other_relevant_information = models.TextField(blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
 
