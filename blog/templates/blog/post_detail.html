@@ -89,19 +89,22 @@
 <!-- Sign In to Comment & Return back to this page after login -->
 {%  else %}
 <section class="container d-flex justify-content-center">
-    <div class="content-item d-flex justify-content-center" id="comments">
-        <h3>Leave a Comment</h3>
-        <a class="btn btn-primary ms-3" href="{%  url 'account_login'  %}?next={{request.path}}"
-            aria-label="Go to Log In Page">Login
-        </a>
+    <div class="card ps-5 pe-5 mb-3 mt-5 shadow p-3 mb-5 bg-body rounded" style="width: 900px;">
+        <div class="content-item d-flex justify-content-center" id="comments">
+            <h3>Leave a Comment</h3>
+            <a class="btn btn-primary ms-3" href="{%  url 'account_login'  %}?next={{request.path}}"
+                aria-label="Go to Log In Page">Login
+            </a>
+        </div>
     </div>
 </section>
 
 {%  endif  %}
 
 <!-- List Comments -->
+{%  if comments  %}
 <section class="container mt-3 pt-3 comments-section">
-    <h3>Number of Comments Here</h3>
+    <h4>Comment{{ post.comments.count|pluralize }} {{ post.comments.count }}</h4>
     {% for comment in comments %}
     <div class="row pt-3">
         <div class="col-md-2"></div>
@@ -158,6 +161,7 @@
         {%  endif  %}
     </div>
 </section>
+{%  endif  %}
 
 
 {%  endblock content  %}
