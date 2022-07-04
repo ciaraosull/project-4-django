@@ -88,8 +88,8 @@
             {%  if is_paginated  %}
 
             {%  if page_obj.has_previous  %}
-            <a class="btn btn-secondary btn-sm mb4 me-1" href="?page=1#post-list">First</a>
-            <a class="btn btn-secondary btn-sm mb4 me-1"
+            <a class="btn btn-outline-secondary btn-sm mb4 me-1" href="?page=1#post-list">First</a>
+            <a class="btn btn-outline-secondary btn-sm mb4 me-1"
                 href="?page={{  page_obj.previous_page_number  }}#post-list">Previous</a>
             {%  endif  %}
 
@@ -103,7 +103,7 @@
 
             {%  if page_obj.has_next  %}
             <a class="btn btn-outline-secondary btn-sm mb4 me-1"
-                href="?page={{  page.obj.next_page_number  }}#post-list">Next</a>
+                href="?page={{  page_obj.next_page_number  }}#post-list">Next</a>
             <a class="btn btn-outline-secondary btn-sm mb4 me-1"
                 href="?page={{  page_obj.paginator.num_pages  }}#post-list">Last</a>
             {%  endif  %}
