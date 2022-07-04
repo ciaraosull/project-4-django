@@ -154,6 +154,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+SUMMERNOTE_CONFIG = {
+    'width': '100%',
+}
 
 
 # Default primary key field type
