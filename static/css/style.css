@@ -22,7 +22,7 @@ body {
 
 main {
     padding-top: 120px;
-    flex: 1 0 auto
+    flex: 1 0 auto;
 }
 
 /* Custom styling for nav bar */
@@ -215,11 +215,21 @@ section so it does not sit behind the fixed header */
 
 /*buttons */
 .btn-primary {
-    background-color: #a56ac0  !important;
-    border-color: #a56ac0  !important;
+    background-color: #a56ac0 !important;
+    border-color: #a56ac0 !important;
 }
 
 .sign-up-link {
-    color: #a56ac0 !important;
-    font-weight: bold;
+    color: #f5f5f5 !important;
+}
+
+/*forms */
+.form-group {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.form-style {
+    background-color: #5f5c5c !important;
+    color: #f5f5f5;
 }
