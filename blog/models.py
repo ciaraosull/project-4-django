@@ -1,4 +1,4 @@
-""" Imports for blog models """
+""" Imports for posts & comments model """
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -16,7 +16,6 @@ class Post(models.Model):
     deployed_link = models.URLField(max_length=200)
     code_repository = models.URLField(max_length=200, blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
 
     class Meta:
         """ To display the posts by created on in desending order """
@@ -34,10 +33,6 @@ class Post(models.Model):
         if not self.slug:
             self.slug = slugify(self.project_title)
         return super().save(*args, **kwargs)
-
-    def number_of_likes(self):
-        """ To return the number of likes """
-        return self.likes.count()
 
 
 class Comment(models.Model):
