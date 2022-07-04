@@ -100,10 +100,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         To get the post to be updated
         and ensure only the author of the post can update it
         """
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
+        return self.request.user == self.get_object().author
 
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -119,10 +116,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         To get the post to be deleted
         and ensure only the author of the post can delete it
         """
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
+        return self.request.user == self.get_object().author
 
 
 class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -131,7 +125,10 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = UpdateCommentForm
 
     def form_valid(self, form):
-        """Function to set signed in user as author of the comment form to post"""
+        """
+        Function to set signed in user
+        as author of the comment form to post
+        """
         form.instance.author = self.request.user
         return super().form_valid(form)
 
@@ -144,7 +141,7 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == comment.name:
             return True
         return False
-    
+
     def get_success_url(self):
         """ On successful comment update, return to post-detail view"""
         post = self.object.post
