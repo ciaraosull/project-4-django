@@ -9,7 +9,7 @@
     <video src="{% static 'images/media/landing-video.mp4' %}" id="background-video" muted autoplay></video>
     <div class="container d-flex justify-content-center">
         <div class="landing-text text-white text-center mt-2">
-            <h1>Welcome to Code Connect</h1>
+            <h1>Welcome to Code Connects</h1>
             <h2>A Peer Code Support Network</h2>
             <div class="explore-button text-center mt-3">
                 <a class="btn btn-light mb4" href="#about-us" aria-label="Go to the about us section">Explore</a>
@@ -27,8 +27,8 @@
                 so not blocked by fixed header -->
         <div id="about-us"></div>
         <section class=" about-us card ps-5 pe-5 mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 800px;">
-            <h4 class="pb-3">About Us</h4>
-            <p>Code Connect is a Peer Support Network.</p>
+            <h4 class="pb-3"><i class="fa-solid fa-circle-info"></i></i> About Us</h4>
+            <p>Code Connects is a Peer Support Network.</p>
             <p> Our aim is to allow those working alone on software projects to find a supportive network for peer code
                 review.</p>
             <p>Post your project for others to use, review and offer supportive feedback on.</p>
@@ -65,10 +65,11 @@
                                         href="{% url 'post-detail' post.slug  %}">{{  post.project_title  }}
                                     </a>
                                 </h4>
-                                <p class="card-text"><small class="text-muted"><strong>{{  post.author  }}</strong>
+                                <p class="card-text mb-1"><small class="text-muted"><strong>{{  post.author  }}</strong>
                                         <i>{{  post.date_posted  }}</i>
                                     </small></p>
-                                <p class="card-text"><small class="text-muted"><strong>
+                                <p class="card-text"><small class="text-muted"><strong><i
+                                                class="fa-regular fa-comment"></i><i>{{  comment.date_posted  }}</i>
                                             Comment{{ post.comments.count|pluralize }}:</strong>
                                         <i>{{ post.comments.count }}</i>
                                     </small></p>
