@@ -1,1 +1,1 @@
-web: gunicorn codesea.wsgi
+web: gunicorn codeconnects.wsgi

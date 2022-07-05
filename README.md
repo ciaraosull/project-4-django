@@ -2,11 +2,11 @@
 
 ## Overview
 
-CodeSea is a website that aims to create an online peer code review community.  This site allows people to share their personal or educational software development projects they are working on with others in the hope of having fresh eyes on their code and having a user base to test their deployed projects on others.
+CodeConnects is a website that aims to create an online peer code review community.  This site allows people to share their personal or educational software development projects they are working on with others in the hope of having fresh eyes on their code and having a user base to test their deployed projects on others.
 
 Users can login, post their project code and deployed sites so that others can view, comment and make suggestions.  This site also aims to help people learn from each others ideas, suggestions and mistakes in a supportive online community.
 
-View the live project [Here]( https://codesea.herokuapp.com/)
+View the live project [Here]( https://code-connects.herokuapp.com/)
 
 
 [Am I Responsive]()
