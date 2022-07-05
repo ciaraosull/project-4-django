@@ -8,14 +8,6 @@ Users can login, post their project code and deployed sites so that others can v
 
 View the live project [Here]( https://codesea.herokuapp.com/)
 
-Sample Walkthrough video to show progress to date:
-
-
-https://user-images.githubusercontent.com/93194443/172339484-08599bc0-f715-403a-a006-541ca83f6d1a.mp4
-
-
-
-
 
 [Am I Responsive]()
 
