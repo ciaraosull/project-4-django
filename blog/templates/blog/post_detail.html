@@ -91,7 +91,7 @@
 {%  else %}
 <section class="container d-flex justify-content-center">
     <div class="card ps-5 pe-5 mb-3 mt-5 shadow p-3 mb-5 bg-body rounded" style="width: 900px;">
-        <div class="content-item d-flex justify-content-center" id="comments">
+        <div class="content-item d-flex justify-content-center">
             <h3>Leave a Comment</h3>
             <a class="btn btn-primary ms-3" href="{%  url 'account_login'  %}?next={{request.path}}"
                 aria-label="Go to Log In Page">Login
@@ -142,7 +142,7 @@
 </section>
 
 <!-- Comments Pagination -->
-<section class="paginate container">
+<div class="paginate container">
     <div class="d-flex justify-content-end mb-4 me-5 mt-3">
         {%  if comments.has_previous  %}
         <a class="btn btn-outline-secondary btn-sm mb4 me-1" href="?page=1">First</a>
@@ -163,12 +163,12 @@
         <a class="btn btn-outline-secondary btn-sm mb4 me-1" href="?page={{  comments.paginator.num_pages  }}">Last</a>
         {%  endif  %}
     </div>
-</section>
+</div>
 
 {%  else %}
 <section class="container d-flex justify-content-center">
     <div class="card ps-5 pe-5 mb-3 mt-5 shadow p-3 mb-5 bg-body rounded" style="width: 900px;">
-        <div class="content-item d-flex justify-content-center" id="comments">
+        <div class="content-item d-flex justify-content-center">
             <h4>Be the First to Comment on this Project!</h4>
         </div>
     </div>
