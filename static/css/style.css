@@ -172,7 +172,7 @@ section so it does not sit behind the fixed header */
 }
 
 .about-us h3 {
-    color: #7c319e
+    color: #7c319e !important;
 }
 
 .posts a {
