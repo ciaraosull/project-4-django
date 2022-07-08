@@ -33,11 +33,11 @@ main {
 }
 
 .nav-link.active {
-    color: #a56ac0;
+    color: #7c319e;
 }
 
 #navbarNav a:hover {
-    color: #a56ac0;
+    color: #7c319e;
     letter-spacing: 1px;
     border-bottom: 1px solid;
 }
@@ -49,7 +49,7 @@ main {
 }
 
 #footer {
-    background-color: #a56ac0;
+    background-color: #7c319e;
     position: relative;
     flex-shrink: 0;
 }
@@ -172,11 +172,11 @@ section so it does not sit behind the fixed header */
 }
 
 .about-us h4 {
-    color: #a56ac0;
+    color: #7c319e
 }
 
 .posts a {
-    color: #a56ac0 !important;
+    color: #7c319e !important;
 }
 
 .content-area {
@@ -215,8 +215,8 @@ section so it does not sit behind the fixed header */
 
 /*buttons */
 .btn-primary {
-    background-color: #a56ac0 !important;
-    border-color: #a56ac0 !important;
+    background-color: #7c319e !important;
+    border-color: #7c319e !important;
 }
 
 .sign-up-link {
