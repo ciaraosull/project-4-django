@@ -15,8 +15,8 @@
                     src="{{post.author.profile.profile_image.url }}" width="150" alt="Profile Image">
                 {%  else  %}
                 <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
-                    src="https://res.cloudinary.com/ciara0s1980/image/upload/v1655849315/default__image.webp" width="150"
-                    alt="Default Profile Image">
+                    src="https://res.cloudinary.com/ciara0s1980/image/upload/v1655849315/default__image.webp"
+                    width="150" alt="Default Profile Image">
                 {%  endif  %}
             </div>
             <div class="col-md-9 text-md-start text-center">
@@ -33,12 +33,13 @@
                             Post</a>
                     </div>
                     {%  endif  %}
-                    <p>{{  object.project_description | safe  }}</p>
-                    <p>Deployed Site: <a href="{{  object.deployed_link  }}" target="_blank"
-                            aria-label="Go to the deployed site link">{{  object.deployed_link  }}</a></p>
-                    <p>Code Repository: <a href="{{  object.code_repository  }}" target="_blank"
-                            aria-label="Go to the code repository site">{{  object.code_repository  }}</a></p>
-                    <p>{{  object.other_relevant_information  }}</p>
+                    <div class="text-start">
+                        <p>{{  object.project_description | safe  }}</p>
+                        <p>Deployed Site: <a href="{{  object.deployed_link  }}" target="_blank"
+                                aria-label="Go to the deployed site link">{{  object.deployed_link  }}</a></p>
+                        <p>Code Repository: <a href="{{  object.code_repository  }}" target="_blank"
+                                aria-label="Go to the code repository site">{{  object.code_repository  }}</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,8 +67,8 @@
                                         src="{{ user.profile.profile_image.url  }}" width="100" alt="Profile Image">
                                     {%  else  %}
                                     <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
-                                        src="https://res.cloudinary.com/ciara0s1980/image/upload/v1655849315/default__image.webp" width="100"
-                                        alt="Default Profile Image">
+                                        src="https://res.cloudinary.com/ciara0s1980/image/upload/v1655849315/default__image.webp"
+                                        width="100" alt="Default Profile Image">
                                     {%  endif  %}
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-7 col-lg-8">
@@ -124,7 +125,9 @@
             <ul class="list-unstyled">
                 <li><i class="fa-solid fa-calendar-days"></i> <i>{{  comment.date_posted  }}</i></li>
             </ul>
-            <p>{{ comment.your_comment | linebreaks  }}</p>
+            <div class="text-start">
+                <p>{{ comment.your_comment | linebreaks  }}</p>
+            </div>
 
             {%  if comment.name == user  %}
             <a class="btn btn-primary btn-sm me-3" href="{%  url 'comment-update' comment.pk  %}"
@@ -143,7 +146,8 @@
     <div class="d-flex justify-content-end mb-4 me-5 mt-3">
         {%  if comments.has_previous  %}
         <a class="btn btn-outline-secondary btn-sm mb4 me-1" href="?page=1">First</a>
-        <a class="btn btn-outline-secondary btn-sm mb4 me-1" href="?page={{  comments.previous_page_number  }}">Previous</a>
+        <a class="btn btn-outline-secondary btn-sm mb4 me-1"
+            href="?page={{  comments.previous_page_number  }}">Previous</a>
         {%  endif  %}
 
         {%  for num in  comments.paginator.page_range  %}

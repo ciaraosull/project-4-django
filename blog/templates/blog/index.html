@@ -73,7 +73,7 @@
                                             Comment{{ post.comments.count|pluralize }}:</strong>
                                         <i>{{ post.comments.count }}</i>
                                     </small></p>
-                                <p class="card-text">
+                                <p class="card-text text-start">
                                     {{  post.project_description | striptags | slice:100 | safe  }}.......
                                 </p>
                             </div>
