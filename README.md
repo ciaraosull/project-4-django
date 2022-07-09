@@ -130,6 +130,13 @@ The Header is intentionally fixed to the top of the screen, this was considered 
 
 *   The explore button is also white for contrast for reading accessibilty.
 
+
+
+
+https://user-images.githubusercontent.com/93194443/178119696-13c2d674-e4f2-4abd-a467-62f54211fe9f.mp4
+
+
+
 4. **About Us**
 *   The About Us section contains important information the user needs to know about the site and its purpose.
 
