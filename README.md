@@ -177,10 +177,18 @@ https://user-images.githubusercontent.com/93194443/178119696-13c2d674-e4f2-4abd-
 
 14. **Error Pages**
 
-* 404 Page A customised 404 page not found was added to the site to support the professionalism design and ensure appropriate link was added back to the main site to guide users who come across this message.
-* 400 Page A customised 400
-* 500 Page A customised 500
-* 403 Page A customised 403
+Custom Error Pages were created to support the professionalism design and ensure appropriate link was added back to the main site to guide users who come across these messages.
+    *   400 Bad Request
+    *   403 Page Forbiden
+    *   404 Page Not Found
+    *   500 Server Error
+
+
+
+
+
+
+
 
 
 ### Features Left to Implement
