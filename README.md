@@ -88,8 +88,10 @@ Within the timeframe work stopped with over 73% of the timebox User Story points
 ## Features
 This website takes the users stories mentioned above into consideration to create a positive UX.  The users stories are discussed in more detail below with examples of how each is implemented.
 
+
 1. **Favicon**
 A customised favicon was created using a free image from [WikiMedia Commons](https://commons.wikimedia.org/wiki/File:MILE_WAVE_LOGO.svg), designed further in [Microsoft 3D Paint](https://apps.microsoft.com/store/detail/paint-3d/9NBLGGH5FV99) and generated on [Real Favicon Generator](https://realfavicongenerator.net/).  This favicon is visible on browser tabs, bookmarks, history archives and so on to help users save time by allowing them to identify and browse the website without difficulties.
+
 
 2. **Header**
 
@@ -118,35 +120,35 @@ The Header is intentionally fixed to the top of the screen, this was considered 
 
 3. **Landing Page**
 
-*   A gif from [Gifer](https://gifer.com/en/79qS) was carefully chosen as a background image to make the landing page stand out from other websites.  This gif was then recorded and edited using [Flashback Express](https://www.flashbackrecorder.com/express/).  It was trimmed and slowed down and then compressed online with [Free Convert](https://www.freeconvert.com/video-compressor).
+    *   A gif from [Gifer](https://gifer.com/en/79qS) was carefully chosen as a background image to make the landing page stand out from other websites.  This gif was then recorded and edited using [Flashback Express](https://www.flashbackrecorder.com/express/).  It was trimmed and slowed down and then compressed online with [Free Convert](https://www.freeconvert.com/video-compressor).
 
-*   This specific video was chosen as the movement is interesting, it compliments the site's purple colour theme and is relevant to the theme of people connecting.  The video was not looped and it was muted so that it is not interactive and stays as a background feature for the user for a few seconds as the user lands on the home page.
+    *   This specific video was chosen as the movement is interesting, it compliments the site's purple colour theme and is relevant to the theme of people connecting.  The video was not looped and it was muted so that it is not interactive and stays as a background feature for the user for a few seconds as the user lands on the home page.
 
-*   The video is fixed into position so that it disapppears as the user continues to the main content so that it does not become too distracting as the amount of text to read increases.
+    *   The video is fixed into position so that it disapppears as the user continues to the main content so that it does not become too distracting as the amount of text to read increases.
 
-*   The landing page also contains the title of the website and its subtitle. A white font with a drop gray shadow was used for contrast for reading accessibility and consistancy with colours used in the header.  CSS animation and keyframes was used as an effect to slowly fade the text in as the video comes to an end.
+    *   The landing page also contains the title of the website and its subtitle. A white font with a drop gray shadow was used for contrast for reading accessibility and consistancy with colours used in the header.  CSS animation and keyframes was used as an effect to slowly fade the text in as the video comes to an end.
 
-*   The landing page was designed not to show any hint of content below to allow the background video to take effect and the landing page to be decluttered for the user before they continued with the site.  Because of this design feature then, an explore button linked to the first section, called About Us, was added. This explore button's aim is to invite the user to interact and encourage them to continue on reading. The user can also scroll but the explore button adds an extra feature incase the instinct to scroll does not happen when there is no hint of content below the landing page.
+    *   The landing page was designed not to show any hint of content below to allow the background video to take effect and the landing page to be decluttered for the user before they continued with the site.  Because of this design feature then, an explore button linked to the first section, called About Us, was added. This explore button's aim is to invite the user to interact and encourage them to continue on reading. The user can also scroll but the explore button adds an extra feature incase the instinct to scroll does not happen when there is no hint of content below the landing page.
 
-*   The explore button is also white for contrast for reading accessibilty.
-
-
+    *   The explore button is also white for contrast for reading accessibilty.
 
 
 https://user-images.githubusercontent.com/93194443/178119696-13c2d674-e4f2-4abd-a467-62f54211fe9f.mp4
 
 
-
 4. **About Us**
-*   The About Us section contains important information the user needs to know about the site and its purpose.
+    
+    *   The About Us section contains important information the user needs to know about the site and its purpose.
 
-*   It also directs them to scroll for the rest of the content on the site.
+    *   It also directs them to scroll for the rest of the content on the site.
 
-*   Bootstrap 5 card was used with a shadow to create a 3D layered effect on the screen and the text colour used was the dark purple to keep consistancy throughout the site with the header and footer.
+    *   Bootstrap 5 card was used with a shadow to create a 3D layered effect on the screen and the text colour used was the dark purple to keep consistancy throughout the site with the header and footer.
 
-       ![About Us](README/assets/about-us-screenshot.png)
+        ![About Us](README/assets/about-us-screenshot.png)
+
 
 5. **Post List View**
+
 
 6. **Post Detail View**
 
@@ -163,6 +165,15 @@ https://user-images.githubusercontent.com/93194443/178119696-13c2d674-e4f2-4abd-
 12. **Sign Out**
 
 13. **Footer**
+    *   The Footer contains the Connect with Us section.  The background and font colours are kept consistant with the theme of the site.
+
+    *   The GitHub & LinkedIn icons from [Font Awesome](https://fontawesome.com/) open in a new tab and take the user to the respective sites to connect.
+
+    *   The Footer also contains a copyright and the authours name.
+        
+        ![Footer](README/assets/footer-screenshot.png)
+
+
 
 14. **Error Pages**
 
