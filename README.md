@@ -277,20 +277,32 @@ A superuser was created for this project to manage the administration section.  
 15. **Error Pages**
 
 Custom Error Pages were created to support the professionalism design and ensure appropriate link was added back to the main site to guide users who come across these messages.
-    *   400 Bad Request
-    *   403 Page Forbiden
-    *   404 Page Not Found
-    *   500 Server Error
 
-
-
-
-
-
-
+* 400 Bad Request
+* 403 Page Forbiden
+* 404 Page Not Found
+* 500 Server Error
 
 
 ### Features Left to Implement
+
+The scope of this project really can be expanded to great lenghts but within a short time frame the following could be easily implemented:
+
+*   As described above, using the allauth already installed and set up, support for third-party (social) authentication via services like Github or Gmail so that users caan use passwords and accounts to log in to this site instead of creating new ones.  Email notifications and reset password functionality could also be implemented quite easily in the short term.
+
+*   Profile page - to allow users to view each others profile pages and include more information such as user bio.  This could allow users to get more familiar with each other and build up a supportive report.
+
+*   Users history - to allow users to see all the posts they have written and comments on their own user profile page so they can navigate to each one easily without having to find on the site.  This would make it easier fro users to update and delete their work.
+
+*   Rezize Profile Image - Pillow was installed with the intention of wrintg a function to ensure that the images the users upload as their profile picture are within a certain size to avoid users uploading images that take up too much space and load faster.
+
+*   Reply to Comments - The comments model could be expanded to include a parent field and then a function to show the child of each of those fields as a reply to each individual comment.  The comment form could be copied and some Javascript used to hide the form and show onclick of a reply icon under each main comment.  This fuctionality would allow better flow to conversations between users.
+
+*   Search functionality - a search box could be included to allow users to search for project posts by language/ library/framework or topic such as website / game / api ect.
+
+*   Accessibility & Privacy - an accessibility page and privacy policy page would be important to implement in the next iteration, especially if the users data such as email is to be required and stored.  This is important for users to be able to understand how the site can be adapted for specific accessiblitiy issues and also inform the users of how their date is stored and kept.
+
+*   Report inappropriate comments / projects - this project opted not to allow the comments to be approved before showing due to it not being maintained very regulalry at present.  However, a way for the user to report inappropriate content would be important feture to impliment next, along with either users content having to be approved first and/or profanity checker installed.  This would ensure the community was kept safe and supportive.
 
 
 ## Design
