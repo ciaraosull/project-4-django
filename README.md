@@ -86,10 +86,12 @@ Within the timeframe work stopped with over 73% of the timebox User Story points
 
 
 ## Features
+
 This website takes the users stories mentioned above into consideration to create a positive UX.  The users stories are discussed in more detail below with examples of how each is implemented.
 
 
 1. **Favicon**
+
 A customised favicon was created using a free image from [WikiMedia Commons](https://commons.wikimedia.org/wiki/File:MILE_WAVE_LOGO.svg), designed further in [Microsoft 3D Paint](https://apps.microsoft.com/store/detail/paint-3d/9NBLGGH5FV99) and generated on [Real Favicon Generator](https://realfavicongenerator.net/).  This favicon is visible on browser tabs, bookmarks, history archives and so on to help users save time by allowing them to identify and browse the website without difficulties.
 
 
@@ -149,22 +151,81 @@ https://user-images.githubusercontent.com/93194443/178119696-13c2d674-e4f2-4abd-
 
 5. **Post List View**
 
+On the home page, Django’s generic class-based ListView was used to list all the users project posts.  There is also a link in the navigation bar which takes the user to the top of the post list so this too can make it easy for the users to navigate.
+
+For each project post the list displays the title of the project, the date posted, how many comments are associated with that particular post and the users name and profile picture. 
+
+The first 100 characters of the project description is displayed by using |slice to give a very short snippet of what the project is about.  As Sunmmernote is used for the user to enter in their project description, the project list uses |striptags to stop the html tags from Summernote displaying on the page and then escape HTML for safety using the |safe tag.
+
+The posts are listed with the newest first and they are paginated after every 6 posts.  The pagination is designed to not only show the page numbers but also the first, previous, next and last page to make it easy for the user to navigate.
+
 
 6. **Post Detail View**
 
-7. **Register**
+When the user clicks the title of the project in the post list view on the home page, they are taken to a separate page that shows this post in detail.  Django’s generic class-based DetailView was used to display each of the instances of the table in the database so that only that chosen post and its related details will show on this page.  
 
-8. **Login**
+Here the user can read the post in full, along with all the other details such as author’s name, profile picture and date posted.  The user can also see any links the author has posted that will take them to the author’s deployed site or code repository.  These will open in a new tab to make navigation easier for the user.
 
-9. **Profile Page**
+Also, on each of these post detail view pages the user can see any comments related to the post, the number of comments listed, the name of the user who wrote the comment, their profile picture and date posted.  The comments are displayed as oldest first to make it easy for the user to follow the thread of conversation.  The comments are paginated after every 6 comments and just like the post list page, the pagination shows not only the page numbers but first, previous, next and last to make navigation easy for the user.
 
-10. **Add, Update & Delete Post**
+If there are no comments yet for a post, a message will show, notifying the user of this and inviting them to be the first to comment on the post.
 
-11. **Add, Update & Delete Comment**
 
-12. **Sign Out**
+7. **Creating a Comment**
 
-13. **Footer**
+If the user is not signed in, then they will not have permission to post a comment.  If the user is not logged in and on the post detail page, then they will see a message asking them to sign in if they want to comment.  The button then takes them to the sign in page.  
+
+After signing in, the user is then automatically taken back to that particular post detail page to make navigation easy for the user.  This is achieved by using ?next={{request.path}}.  This adds a URL parameter next containing the address of the current page, to the end of the linked URL.  After the user has successfully logged in, the views will use this "next" value to redirect the user back to the page where they first clicked the login link, which is the post detail view page.
+
+Once logged in then the user will see their profile picture and name beside a form.  It notifies the user that they will be commenting as their username.  Once the user has written their comment and clicked the submit button, they are alerted that their comment was successfully added and are taken back to the post detail page where they can view their comment if they wish.  Again, this is set up to help with ease of navigation for the user.
+
+
+8. **Updating & Deleting a Comment**
+
+If the user is logged in the option to update or delete their comment is displayed beside any comment they wrote.  
+
+If the user chooses to update, then they are presented with the comment form, already prepopulated with their comment so they can amend as needed and resubmit.
+
+If the user decides to delete their comment, they are taken to a separate page and asked if they are sure before deciding to permanently delete.  This is to provide a safety net in case the user changes their mind or clicked the delete button by mistake.
+
+
+9. **Creating a Post**
+
+If the user is logged in, then they can create a post.  The link to creating a post then displays on the navigation bar once the user has logged in.
+
+The user is taken to a form with a WYSIWYG editor called Summernote to help them format their content by adding different headings, links, images etc.
+
+Once the user has submitted their post, they are taken to that post’s detail page where they can see it displayed.
+
+The user can also navigate to the post list view on the home page and see their post listed there too.
+
+
+10. **Updating & Deleting a Post**
+
+If the user is logged in the option to update or delete their post is displayed beside any post they wrote.  
+
+If the user chooses to update, then they are presented with the post form, already prepopulated with their post’s details so they can amend as needed and resubmit.
+
+If the user decides to delete their post, they are taken to a separate page and asked if they are sure before deciding to permanently delete.  This is to provide a safety net in case the user changes their mind or clicked the delete button by mistake.
+
+The user is alerted to their actions by success messages appearing at the top of the page.
+
+
+11. **Profile Page**
+
+Once a user registers, they will have a profile page automatically created for them.  The link to their profile page appears in the navigation bar once they are logged in.  On this page the user can choose to update their profile information such as username, email address and profile image.  If no image is chosen, then a default profile image is provided.
+
+12. **Register, Sign In & Log Out**
+
+As described in the future features section of this README, it is hoped that this project will be expanded to provide support for third-party (social) authentication via services like Github or Gmail.  As Django does not support this automatically, allauth was installed and used to create the register, sign in and log out functionality, so the project will already have the foundations in place to expand on this functionality in the future.
+
+At present to register, the user is not required to provide an email address.  This was decided on because there is no use for it yet then the user should not be asked for it at this stage, so their private details are not being stored if they are not needed.  In time as the scope of the project expands, for example, sending email notifications or recovered password functionality, then this may become a requirement for the user to provide.
+
+13. **Admin User**
+A superuser was created for this project to manage the administration section.  Admin users have more functionality than regular users and can allow them to create, read, update and delete information such as users, profiles, posts and comments.  Only approved admin users can access this section of the site and can do so by adding /admin to the URL home page.  It was decided at this time not to provide a link to this on the site but could be a future feature to allow easier navigation for any admin users. 
+
+
+14. **Footer**
     *   The Footer contains the Connect with Us section.  The background and font colours are kept consistant with the theme of the site.
 
     *   The GitHub & LinkedIn icons from [Font Awesome](https://fontawesome.com/) open in a new tab and take the user to the respective sites to connect.
@@ -175,7 +236,7 @@ https://user-images.githubusercontent.com/93194443/178119696-13c2d674-e4f2-4abd-
 
 
 
-14. **Error Pages**
+15. **Error Pages**
 
 Custom Error Pages were created to support the professionalism design and ensure appropriate link was added back to the main site to guide users who come across these messages.
     *   400 Bad Request
