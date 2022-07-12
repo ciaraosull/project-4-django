@@ -157,27 +157,45 @@ For each project post the list displays the title of the project, the date poste
 
 The first 100 characters of the project description is displayed by using |slice to give a very short snippet of what the project is about.  As Sunmmernote is used for the user to enter in their project description, the project list uses |striptags to stop the html tags from Summernote displaying on the page and then escape HTML for safety using the |safe tag.
 
+![Post List View](README/assets/post-list-screenshot.png)
+
+
 The posts are listed with the newest first and they are paginated after every 6 posts.  The pagination is designed to not only show the page numbers but also the first, previous, next and last page to make it easy for the user to navigate.
+
+[Pagination](README/assets/pagination-screenshot.png)
 
 
 6. **Post Detail View**
 
 When the user clicks the title of the project in the post list view on the home page, they are taken to a separate page that shows this post in detail.  Django’s generic class-based DetailView was used to display each of the instances of the table in the database so that only that chosen post and its related details will show on this page.  
 
+![Post Detail View](README/assets/post-detail-screenshot.png)
+
 Here the user can read the post in full, along with all the other details such as author’s name, profile picture and date posted.  The user can also see any links the author has posted that will take them to the author’s deployed site or code repository.  These will open in a new tab to make navigation easier for the user.
 
 Also, on each of these post detail view pages the user can see any comments related to the post, the number of comments listed, the name of the user who wrote the comment, their profile picture and date posted.  The comments are displayed as oldest first to make it easy for the user to follow the thread of conversation.  The comments are paginated after every 6 comments and just like the post list page, the pagination shows not only the page numbers but first, previous, next and last to make navigation easy for the user.
 
+![Comments List](README/assets/view-comments-screenshot.png)
+
 If there are no comments yet for a post, a message will show, notifying the user of this and inviting them to be the first to comment on the post.
+
+![No Comments](README/assets/no-comment-screenshot.png)
 
 
 7. **Creating a Comment**
 
 If the user is not signed in, then they will not have permission to post a comment.  If the user is not logged in and on the post detail page, then they will see a message asking them to sign in if they want to comment.  The button then takes them to the sign in page.  
 
+![Leave Comment](README/assets/leave-comment-screenshot.png)
+
 After signing in, the user is then automatically taken back to that particular post detail page to make navigation easy for the user.  This is achieved by using ?next={{request.path}}.  This adds a URL parameter next containing the address of the current page, to the end of the linked URL.  After the user has successfully logged in, the views will use this "next" value to redirect the user back to the page where they first clicked the login link, which is the post detail view page.
 
 Once logged in then the user will see their profile picture and name beside a form.  It notifies the user that they will be commenting as their username.  Once the user has written their comment and clicked the submit button, they are alerted that their comment was successfully added and are taken back to the post detail page where they can view their comment if they wish.  Again, this is set up to help with ease of navigation for the user.
+
+![Add Comment](README/assets/add-comment-screenshot.png)
+
+
+![Success Comment](README/assets/success-comment-screenshot.png)
 
 
 8. **Updating & Deleting a Comment**
@@ -188,6 +206,7 @@ If the user chooses to update, then they are presented with the comment form, al
 
 If the user decides to delete their comment, they are taken to a separate page and asked if they are sure before deciding to permanently delete.  This is to provide a safety net in case the user changes their mind or clicked the delete button by mistake.
 
+![Edit Comments](README/assets/comments-screenshot.png)
 
 9. **Creating a Post**
 
@@ -198,6 +217,8 @@ The user is taken to a form with a WYSIWYG editor called Summernote to help them
 Once the user has submitted their post, they are taken to that post’s detail page where they can see it displayed.
 
 The user can also navigate to the post list view on the home page and see their post listed there too.
+
+![Add Post](README/assets/post-form-screenshot.png)
 
 
 10. **Updating & Deleting a Post**
@@ -210,10 +231,14 @@ If the user decides to delete their post, they are taken to a separate page and 
 
 The user is alerted to their actions by success messages appearing at the top of the page.
 
+![Delete Post](README/assets/delete-post-screenshot.png)
+
 
 11. **Profile Page**
 
 Once a user registers, they will have a profile page automatically created for them.  The link to their profile page appears in the navigation bar once they are logged in.  On this page the user can choose to update their profile information such as username, email address and profile image.  If no image is chosen, then a default profile image is provided.
+
+![Profile Page](README/assets/profile-screenshot.png)
 
 12. **Register, Sign In & Log Out**
 
@@ -221,7 +246,20 @@ As described in the future features section of this README, it is hoped that thi
 
 At present to register, the user is not required to provide an email address.  This was decided on because there is no use for it yet then the user should not be asked for it at this stage, so their private details are not being stored if they are not needed.  In time as the scope of the project expands, for example, sending email notifications or recovered password functionality, then this may become a requirement for the user to provide.
 
+![Register](README/assets/register-screenshot.png)
+
+![Sign In](README/assets/signin-screenshot.png)
+
+![Log Out](README/assets/logout-screentshot.png)
+
+As previously described, once a user is logged in the navigation bar will change to display the different features the user has access to.
+
+![Success Sign In](README/assets/success-signin-screenshot.png)
+
+![Success Log Out](README/assets/success-signout-screenshot.png)
+
 13. **Admin User**
+
 A superuser was created for this project to manage the administration section.  Admin users have more functionality than regular users and can allow them to create, read, update and delete information such as users, profiles, posts and comments.  Only approved admin users can access this section of the site and can do so by adding /admin to the URL home page.  It was decided at this time not to provide a link to this on the site but could be a future feature to allow easier navigation for any admin users. 
 
 
