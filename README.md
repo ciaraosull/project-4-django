@@ -9,9 +9,6 @@ Users can login, post their project description, source code and deployed sites 
 View the live project [Here]( https://code-connects.herokuapp.com/)
 
 
-[Am I Responsive]()
-
-
 ## User Experience (UX)
 
 ### User Stories
@@ -27,9 +24,9 @@ As a user I want to:
 *	Easily log in and log out of my account, so that I can access my personal information.
 *	View my profile so that I can update my information such as username, email and profile image.
 *	Find links easily so that I can contact the site owner if needed.
-*	 Clearly see what user posted which projects and comments so that I can make a connection.
+*	Clearly see what user posted which projects and comments so that I can make a connection.
 *	See clearly what date a post or comment was created so that I can clearly see how relevant and up to date the information is.
-*	 Clearly see how many comments are attached to a post before clicking in to read it fully so that I can decide to read and also comment depending on whether others have commented already.
+*	Clearly see how many comments are attached to a post before clicking in to read it fully so that I can decide to read and also comment depending on whether others have commented already.
 *	Post my projects to the site so that I can connect with others and receive feedback on my project.
 *	Update and delete my own project posts so that I can keep the information up to date or fix any mistakes I notice.
 *	Comment on my own project posts so that I can reply to other users’ comments
@@ -73,7 +70,7 @@ To complete the overall aim of the Code Connects idea, 9 Epics were formed (docu
     *	create form to allow users to be able to edit the information displayed on their profile page
     *	add update button for users to click to submit their changes
     *	show success message when user profile update
-    *   manually test this works
+    *   manually test this works by setting up a test user
 
 
 Story points estimated the effort required to complete a particular User Story in one iteration.  To create a Product Backlog GitHub Milestones was used to track progress on groups of issues relating to the User Stories.
@@ -105,7 +102,7 @@ The Header is intentionally fixed to the top of the screen, this was considered 
     
     * This logo is positioned in the top left of the navigation bar.  The logo is linked to the landing page for ease of navigation for the user, no matter what section they are on they can click the logo in the top left to navigate back.
     
-    * The logo is designed to have the purple themed colour of the website and contains the website's name beside the icon. This is to help it be consistant witht he site's colour scheme.
+    * The logo is designed to have the purple themed colour of the website and contains the website's name beside the icon. This is to help it be consistant with the site's colour scheme.
 
 
 *   Navigation Bar
@@ -262,7 +259,11 @@ As previously described, once a user is logged in the navigation bar will change
 
 13. **Admin User**
 
-A superuser was created for this project to manage the administration section.  Admin users have more functionality than regular users and can allow them to create, read, update and delete information such as users, profiles, posts and comments.  Only approved admin users can access this section of the site and can do so by adding /admin to the URL home page.  It was decided at this time not to provide a link to this on the site but could be a future feature to allow easier navigation for any admin users. 
+A superuser was created for this project to manage the administration section.  Admin users have more functionality than regular users and can allow them to create, read, update and delete information such as users, profiles, posts and comments.  
+
+Only approved admin users can access this section of the site and can do so by adding /admin to the URL home page and signing in.  It was decided at this time not to provide a link to this on the site but could be a future feature to allow easier navigation for any admin users. 
+
+![Admin Screenshot](README/assets/admin-screenshot.png)
 
 
 14. **Footer**
@@ -290,21 +291,23 @@ Custom Error Pages were created to support the professionalism design and ensure
 
 The scope of this project really can be expanded to great lenghts but within a short time frame the following could be easily implemented:
 
-*   As described above, using the allauth already installed and set up, support for third-party (social) authentication via services like Github or Gmail so that users caan use passwords and accounts to log in to this site instead of creating new ones.  Email notifications and reset password functionality could also be implemented quite easily in the short term.
+*   As described above, using the allauth already installed and set up, support for third-party (social) authentication via services like Github or Gmail so that users can use passwords and accounts to log in to this site instead of creating new ones.  Email notifications and reset password functionality could also be implemented quite easily in a short timeframe.
 
 *   Profile page - to allow users to view each others profile pages and include more information such as user bio.  This could allow users to get more familiar with each other and build up a supportive report.
 
-*   Users history - to allow users to see all the posts they have written and comments on their own user profile page so they can navigate to each one easily without having to find on the site.  This would make it easier fro users to update and delete their work.
+*   Users history - to allow users to see all the posts they have written and comments on their own user profile page so they can navigate to each one easily without having to find on the site.  This would make it easier for users to update and delete their work.
 
-*   Rezize Profile Image - Pillow was installed with the intention of wrintg a function to ensure that the images the users upload as their profile picture are within a certain size to avoid users uploading images that take up too much space and load faster.
+*   Resize Profile Image - Pillow was installed with the intention of wrintg a function to ensure that the images the users upload as their profile picture are reduced to a certain file size to avoid users uploading images that take up too much space and load faster.  This could be easily implemented next within a short timeframe.
 
-*   Reply to Comments - The comments model could be expanded to include a parent field and then a function to show the child of each of those fields as a reply to each individual comment.  The comment form could be copied and some Javascript used to hide the form and show onclick of a reply icon under each main comment.  This fuctionality would allow better flow to conversations between users.
+*   Reply to Comments - The comments model could be expanded to include a parent field and then a function to show the child of each of those fields as a reply to each individual comment.  The comment form could be copied and some Javascript used to hide the form and then show on click of a reply icon under each main comment.  This fuctionality would allow better flow to conversations between users.
 
-*   Search functionality - a search box could be included to allow users to search for project posts by language/ library/framework or topic such as website / game / api ect.
+*   Search functionality - a search box could be included to allow users to search for project posts by language/ library/framework or topic such as website / game / api ect.  The Post model could be expanded to use this as a field topic users can enter the details of the language or framework they used and this then could also be displayed on the post list view or used to filter the views to make the topics shown more relevant to each user.
 
 *   Accessibility & Privacy - an accessibility page and privacy policy page would be important to implement in the next iteration, especially if the users data such as email is to be required and stored.  This is important for users to be able to understand how the site can be adapted for specific accessiblitiy issues and also inform the users of how their date is stored and kept.
 
 *   Report inappropriate comments / projects - this project opted not to allow the comments to be approved before showing due to it not being maintained very regulalry at present.  However, a way for the user to report inappropriate content would be important feture to impliment next, along with either users content having to be approved first and/or profanity checker installed.  This would ensure the community was kept safe and supportive.
+
+*   Likes - it was decided not to use the feature of like or dislike or upvote/downvote on posts to ensure a more supportive and less competitive space for users.  However, a views counter could be implimented to allow users to see how many people have viewed their post to give an indication of how many people might have tested or used it.
 
 
 ## Design
@@ -314,9 +317,10 @@ The scope of this project really can be expanded to great lenghts but within a s
 [LucidCharts](www.lucidchart.com) was used to visualise the custom models for this project.  [AllAuth](https://django-allauth.readthedocs.io/en/latest/) was also used for the user authentication system.  This uses the built-in Django User Model.
 
 The Profile model allows users who sign up to have a profile automatically created for them and the user can then update and change their profile information if they wish.  One User has One Profile, so this is a One-to-One relationship with the User’s name acting as the Foreign Key to the User Model.
-As each User and their Profile can have many posts, this is represented using the One-to-Many relationship how ever each post can only have one author.  The author’s name acts as the Foreign Key to the User Model.
 
-Also, every post can have 0 or many Comments and the post acts as the Foreign Key to the Comments & Post Model.  As only one User can be the author of a comment this is represented by the One-to-One relationship with the User Model and the author of the comment is acting as the Foreign Key for the Comments.
+As each User and their Profile can have many posts, this is represented using the One-to-Many relationship however each post can only have one author.  The author’s name acts as the Foreign Key to the User Model.
+
+Also, every post can have 0 or many Comments and the post acts as the Foreign Key to the Comments & Post Model.  As only one User can be the author of any one comment this is represented by the One-to-One relationship with the User Model and the author of the comment is acting as the Foreign Key for the Comments.
 
 ![ERD Image](README/assets/entity-relationship-diagram.png)
 
@@ -353,6 +357,7 @@ During development errors or warnings were fixed as they appeared such as indent
 Google Chrome's built-in Developer Tool was used to inspect page elements throughout the build and helped debug issues within the HTML code and CSS styles.
 
 After deployment, all features were tested for responsive design on a laptop and mobile (Samsung Galaxy & iPhone 8). The site was sent to peers to check from their devices that all features functioned correctly and feedback on responsiveness and functionality was positive across all devices checked such as PC, Laptop, Tablets, and Mobiles (Android & IOS). The website was checked on Chrome, Firefox, and Edge.
+
 The README.md was proofread and passed through Grammarly and all links were checked before final submission.
 
 During development, after each piece of functionality was created it was manually tested.  Manually testing each function was recorded in the commits as development progressed.  The following table tracks the final full manual test of the site after deployment.
