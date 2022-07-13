@@ -307,6 +307,19 @@ The scope of this project really can be expanded to great lenghts but within a s
 
 ## Design
 
+### Data Model
+
+[LucidCharts](www.lucidchart.com) was used to visualise the custom models for this project.  [AllAuth](https://django-allauth.readthedocs.io/en/latest/) was also used for the user authentication system.  This uses the built-in Django User Model.
+
+The Profile model allows users who sign up to have a profile automatically created for them and the user can then update and change their profile information if they wish.  One User has One Profile, so this is a One-to-One relationship with the User’s name acting as the Foreign Key to the User Model.
+As each User and their Profile can have many posts, this is represented using the One-to-Many relationship how ever each post can only have one author.  The author’s name acts as the Foreign Key to the User Model.
+
+Also, every post can have 0 or many Comments and the post acts as the Foreign Key to the Comments & Post Model.  As only one User can be the author of a comment this is represented by the One-to-One relationship with the User Model and the author of the comment is acting as the Foreign Key for the Comments.
+
+![ERD Image](README/assets/entity-relationship-diagram.png)
+
+Throughout this project, I have opted to use Object-Oriented Programming and Django’s Class-Based Generic Editing Views are used for this.  These are an advanced set of built-in views which are used to implement Create, Retrieve, Update and Delete instances of a table in the database. 
+
 ### Wireframes
 ### Fonts
 ### Colour Scheme
