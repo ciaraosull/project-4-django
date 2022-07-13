@@ -373,6 +373,16 @@ During development, after each piece of functionality was created it was manuall
 
 ![PEP8 Checker](README/assets/pep8-validator-screenshot.png)
 
+## Security
+
+All SECRET access keys are stored safely in env.py file to prevent unwanted connections to the database and this was set up before the first push to Github.
+
+Django’s setting DEBUG was set to False after development for deployment to prevent access to error screens revealing code or database entries.
+
+Django allauth was used to set up user registration and Django’s LoginRequiredMixin and UserPassesTestMixin were used to ensure only signed in users and authors can edit / delete their own posts or comments etc.
+
+Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site to prevent valid requests to the backend server being created for malicious purposes.
+
 
 ## Deployment
 
