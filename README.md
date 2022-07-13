@@ -403,6 +403,7 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 *   Other tools:
     *   Balsamiq Wireframes: used to create the wireframes for design
     *   Chrome DevTools: used to debug the website
+    *   Crispy Forms: used to manage Django Forms
     *   Cloudinary: the image hosting service used to upload images
     *   Coolors: used to make the colour palette
     *   Font Awesome: used to create the icons
@@ -416,11 +417,36 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
     *   Microsoft Paint 3D: used to create and manipulate images
     *   Pip3: the package manager used to install the dependencies
     *   Psycopg2: the database driver used to connect to the database
+    *   Summernote: A WYSIWYG editor to allow users to edit their posts
 
 ## Deployment
 
+The site was deployed via Heroku.
+1.  Log in to Heroku or create an account if required.
+2.  Then, click the button labelled New from the dashboard in the top right corner and from the drop-down menu select Create New App.  You must enter a unique app name
+3.  Next, select your region.
+4.  Click on the Create App button.
+5.  In your app go to Resources tab and add a Heroku Postgres database.
+6.  The next page you will see is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars and enter:
+    *   CLOUDINARY_URL = your cloudinary key 
+    *   DATABASE_URL = the url of your heroku postgres database
+    *   SECRET_KEY = a secret key for your app.
+    *   PORT = 8000
+    *   DISABLE_COLLECTSTATIC = 1 during development and remove when deploying to production
+
+7.  Scroll to the top of the page and now choose the Deploy tab.
+8.  Select Github as the deployment method.
+9.  Confirm you want to connect to GitHub.
+10. Search for the repository name and click the connect button.
+11. Scroll to the bottom of the deploy page and select preferred deployment type:
+12. Click either Enable Automatic Deploys for automatic deployment when you push updates to Github.
+13. Select the correct branch for deployment from the drop-down menu and click Deploy Branch for manual deployment.
+
+NB: Ensure in Django settings, DEBUG is False, create a Procfile and save database and cloudinary urls and secret key to env.py.
+
 ### Version Control
-### Cloning
+
+Git was used as the version control software. Commands such as git add ., git status, git commit and git push were used to add, save, stage and push the code to the GitHub repository where the source code is stored.
 
 ## Credits
 ### Content
@@ -429,15 +455,36 @@ Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this 
 
 *   [Bootstrap 5 Move Nav Links Right](https://www.studytonight.com/bootstrap/how-to-align-bootstrap-5-navbar-items-to-the-right)
 
-*   [Bootstrap Footer Ideas](https://mdbootstrap.com/docs/standard/navigation/footer/): A mix of these were used with customised styling
+*   [Bootstrap Footer Ideas](https://mdbootstrap.com/docs/standard/navigation/footer/): a mix of these were used with customised styling
 
-*   [Net Ninja Model Methods](https://www.youtube.com/watch?v=ERCt6HUcaFw): Used to learn how to make a model method to show a snippet of the description on home page
+*   [Jinja Docs](https://jinja.palletsprojects.com/en/3.1.x/templates/#list-of-builtin-filters)
+
+*   [Django Docs](https://docs.djangoproject.com/en/4.0/)
+
+*   [Django Allauth](https://django-allauth.readthedocs.io/en/latest/)
+
+*   [GeeksforGeeks](https://www.geeksforgeeks.org/createview-class-based-views-django/) class based views
+
+*   [Django Slug Tutorial](https://learndjango.com/tutorials/django-slug-tutorial)
+
+*   [Django Docs Pagination](https://docs.djangoproject.com/en/2.2/topics/pagination/#using-paginator-in-a-view)
+
+*   [Net Ninja Model Methods](https://www.youtube.com/watch?v=ERCt6HUcaFw): used to learn how to make a model method to show a snippet of the description on home page
+
+*   [Corey Schafer Django Tutorial](https://www.youtube.com/watch?v=a48xeeo5Vnk): used to learn how to use Django's generic edit class based views
+
+*   [Cloudinary Field in Django](https://www.section.io/engineering-education/uploading-images-to-cloudinary-from-django-application/)
+
+*   [DRY](https://dontrepeatyourself.org/post/django-blog-tutorial-part-4-posts-and-comments/): posts & comments tutorial
+
+*   [Summernote in Django](https://djangocentral.com/integrating-summernote-in-django/)
+
 
 ### Media
 
 *   [Image for Customising Logo](https://commons.wikimedia.org/wiki/File:MILE_WAVE_LOGO.svg)
 
 
-
 ## Acknowledgements
 
+This project was made possible due to the help, advice and support of my Code Institue Tutor Kasia, my Mentor Daisy and all the lovely people on the Code Institue Slack community.
