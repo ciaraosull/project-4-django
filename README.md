@@ -384,6 +384,39 @@ Django allauth was used to set up user registration and Django’s LoginRequired
 Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site to prevent valid requests to the backend server being created for malicious purposes.
 
 
+## Technologies Used
+
+*   Languages:
+    *   Python: used to develop the server-side
+    *   HTML: the markup language used to create the web pages
+    *   CSS: the styling language used to add custom styling
+
+*   Frameworks and libraries:
+    *   Django: python framework used to create all the backend logic
+    *   Bootstrap5: CSS Framework for developing responsiveness and mobile-first
+    *   Django-allauth: authentication library used to create the user accounts
+
+*   Databases:
+    *   SQLite: used as the database during development
+    *   PostgreSQL: the database used to store all the data on deployment
+
+*   Other tools:
+    *   Balsamiq Wireframes: used to create the wireframes for design
+    *   Chrome DevTools: used to debug the website
+    *   Cloudinary: the image hosting service used to upload images
+    *   Coolors: used to make the colour palette
+    *   Font Awesome: used to create the icons
+    *   Flashback Express: used to edit video
+    *   Github Projects: used to track the progress of the project
+    *   Git: the version control system
+    *   GitHub: used to host the source code
+    *   GitPod: the IDE used
+    *   Heroku: the hosting service
+    *   LucidCharts: used to create the ERD data model design
+    *   Microsoft Paint 3D: used to create and manipulate images
+    *   Pip3: the package manager used to install the dependencies
+    *   Psycopg2: the database driver used to connect to the database
+
 ## Deployment
 
 ### Version Control
