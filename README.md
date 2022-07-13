@@ -355,11 +355,24 @@ Google Chrome's built-in Developer Tool was used to inspect page elements throug
 After deployment, all features were tested for responsive design on a laptop and mobile (Samsung Galaxy & iPhone 8). The site was sent to peers to check from their devices that all features functioned correctly and feedback on responsiveness and functionality was positive across all devices checked such as PC, Laptop, Tablets, and Mobiles (Android & IOS). The website was checked on Chrome, Firefox, and Edge.
 The README.md was proofread and passed through Grammarly and all links were checked before final submission.
 
-During development, after each piece of functionality was created it was manually tested.  The following table tracks the final full manual test of the site after deployment.
+During development, after each piece of functionality was created it was manually tested.  Manually testing each function was recorded in the commits as development progressed.  The following table tracks the final full manual test of the site after deployment.
 
 ![Manual Test Log](README/assets/code-connects-manual-testing.png)
 
 ### Validator Testing
+
+*   All html pages were run through the W3C HTML Validator and showed some minor missing/duplicate end tag errors, and these were fixed accordingly.
+
+![HTML Checker](README/assets/html-validator-screenshot.png)
+
+*   CSS stylesheet was run through the W3C CSS Validator and showed no errors.
+
+![CSS Checker](README/assets/css-validator-screenshot.png)
+
+*   Python files such as views.py, models.py ect. were run through the Pep8 validator and no errors found.
+
+![PEP8 Checker](README/assets/pep8-validator-screenshot.png)
+
 
 ## Deployment
 
