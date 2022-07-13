@@ -361,15 +361,15 @@ During development, after each piece of functionality was created it was manuall
 
 ### Validator Testing
 
-*   All html pages were run through the W3C HTML Validator and showed some minor missing/duplicate end tag errors, and these were fixed accordingly.
+*   All html pages were run through the [W3C HTML](https://validator.w3.org/) Validator and showed some minor missing/duplicate end tag errors, and these were fixed accordingly.
 
 ![HTML Checker](README/assets/html-validator-screenshot.png)
 
-*   CSS stylesheet was run through the W3C CSS Validator and showed no errors.
+*   CSS stylesheet was run through the [W3C CSS](https://jigsaw.w3.org/css-validator/) Validator and showed no errors.
 
 ![CSS Checker](README/assets/css-validator-screenshot.png)
 
-*   Python files such as views.py, models.py ect. were run through the Pep8 validator and no errors found.
+*   Python files such as views.py, models.py ect. were run through the [Pep8](http://pep8online.com/) validator and no errors found.
 
 ![PEP8 Checker](README/assets/pep8-validator-screenshot.png)
 
