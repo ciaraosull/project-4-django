@@ -373,6 +373,15 @@ During development, after each piece of functionality was created it was manuall
 
 ![PEP8 Checker](README/assets/pep8-validator-screenshot.png)
 
+### Interesting Bugs & Issues
+
+Using Django’s DetailView of Posts I wanted to paginate the comments.  However, the comments were showing and the paginator was showing down the bottom but the two did not seem to be linked.  In other words all the comments were listed on each page of the paginator instead of in groups of 6 on each page. 
+
+On checking through the code of the paginator and reading through Django documentation on pagination again, [Stack Over Flow]( https://stackoverflow.com/questions/56927894/paginate-comments-to-posts) and an [article]( https://blog.devgenius.io/django-extended-pagination-36e18e21d10d) I found on the subject I thought the error might be with the comment object I was returning in the DetailView.
+
+I used the shell to print the comment object and I realised I had not set the comment context but instead the ‘page_obj’ to the paginator.get_page and once this was all altered the paginator and comments then linked together and functioned as expected.
+
+
 ## Security
 
 All SECRET access keys are stored safely in env.py file to prevent unwanted connections to the database and this was set up before the first push to Github.
