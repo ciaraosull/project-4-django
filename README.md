@@ -324,13 +324,13 @@ Throughout this project, I have opted to use Object-Oriented Programming and Dja
 
 After the design of the models [Balsamic Wireframes](www.balsamiq.com) were created to visualise the content the user sees and to design a positive UX (as described in more detail in the Features section).  A mobile first approach was used to design the site specifically for mobile use and then the design was altered slightly for desktop view.  [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used with some customised styling to create a unique feel to the site.  [Font Awesome](https://fontawesome.com/) Icons were used throughout the site for reading accessibilty also.
 
-![Mobile Home](README/assets/home-mobile-wireframe.pdf)
+![Mobile Home](README/assets/home-mobile-wireframe.png)
 
-![Desktop Home](README/assets/home-desktop-wireframe.pdf)
+![Desktop Home](README/assets/home-desktop-wireframe.png)
 
-![Mobile Post Detail View](README/assets/post-mobile-wireframe.pdf)
+![Mobile Post Detail View](README/assets/post-mobile-wireframe.png)
 
-![Desktop Post Detail View](README/assets/post-desktop-wireframe.pdf)
+![Desktop Post Detail View](README/assets/post-desktop-wireframe.png)
 
 
 ### Fonts
