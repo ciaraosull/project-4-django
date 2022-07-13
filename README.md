@@ -146,6 +146,8 @@ https://user-images.githubusercontent.com/93194443/178119696-13c2d674-e4f2-4abd-
 
     *   Bootstrap 5 card was used with a shadow to create a 3D layered effect on the screen and the text colour used was the dark purple to keep consistancy throughout the site with the header and footer.
 
+    *   Links to 3 important sections for the user were added with on hover colour change effect to give feedback to the user that they are clickable buttons.  The 3 links are for viewing the list of posts, registering an account and signing in.  By adding the links here as well as in the nav bar, navigation is made easy and how to use the site is understood by the user.
+
         ![About Us](README/assets/about-us-screenshot.png)
 
 
