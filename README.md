@@ -334,7 +334,15 @@ After the design of the models [Balsamic Wireframes](www.balsamiq.com) were crea
 
 
 ### Fonts
+
+The fonts used were Alice and serif. Alice was chosen for its clear lettering and spacing for reading accessibility for the user. Fonts were imported from [Google Fonts](https://fonts.google.com/).
+
 ### Colour Scheme
+
+The colour scheme was chosen by using Coolors. The following palette was chosen for using on the fonts throughout the site due to high contrast for user reading accessibility:
+
+![Colour Pallet](README/assets/colour-pallet.png)
+
 
 ## Testing
 
