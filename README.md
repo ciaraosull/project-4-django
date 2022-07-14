@@ -380,7 +380,7 @@ During development, after each piece of functionality was created it was manuall
 
 *   Lighthouse was used to check perfomance and accessiblitiy.  Accessibility came in at 98% to show the pagination colours were not contrasting enough so a darker colour was chsoen for the number to stand out against the button backgroud.  Accessibility then returned 100%.
 
-
+![Lighthouse Report](README/assets/lighthouse-screenshot.png)
 
 ### Interesting Bugs & Issues
 
