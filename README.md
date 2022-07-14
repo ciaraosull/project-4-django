@@ -378,6 +378,10 @@ During development, after each piece of functionality was created it was manuall
 
 ![PEP8 Checker](README/assets/pep8-validator-screenshot.png)
 
+*   Lighthouse was used to check perfomance and accessiblitiy.  Accessibility came in at 98% to show the pagination colours were not contrasting enough so a darker colour was chsoen for the number to stand out against the button backgroud.  Accessibility then returned 100%.
+
+
+
 ### Interesting Bugs & Issues
 
 Using Django’s DetailView of Posts I wanted to paginate the comments.  However, the comments were showing and the paginator was showing down the bottom but the two did not seem to be linked.  In other words all the comments were listed on each page of the paginator instead of in groups of 6 on each page. 
