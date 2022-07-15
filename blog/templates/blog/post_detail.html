@@ -5,34 +5,40 @@
 
 {%  load crispy_forms_tags  %}
 
-
+<!-- Post Details Page -->
 <section class="container d-flex justify-content-center">
     <div class="about-us card ps-5 pe-5 mb-3 mt-5 shadow p-3 mb-5 bg-body rounded" style="width: 900px;">
         <div class="row g-0">
             <div class="col-md-3">
+                <!-- Show Author Profile Image -->
                 {%  if post.author.profile.profile_image.url  %}
                 <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
                     src="{{post.author.profile.profile_image.url }}" width="150" alt="Profile Image">
                 {%  else  %}
+                <!-- Show Default Image -->
                 <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
                     src="https://res.cloudinary.com/ciara0s1980/image/upload/v1655849315/default__image.webp"
                     width="150" alt="Default Profile Image">
                 {%  endif  %}
             </div>
+            <!-- Show Details of the Post -->
             <div class="col-md-9 text-md-start text-center">
                 <div class="card-body">
                     <h2 class="card-title">{{  object.project_title  }}</h2>
                     <p>By <strong>{{  object.author  }}</strong> on <i>{{  object.date_posted  }}</i></p>
                     {%  if object.author == user  %}
+                    <!-- Update Post if User is Author -->
                     <div class="form-group d-flex">
                         <a class="btn btn-primary btn-sm me-3" href="{%  url 'post-update' object.slug  %}"
                             aria-label="Update Post">Update
                             Post</a>
+                            <!-- Delete Post if User is Author -->
                         <a class="btn btn-danger btn-sm ms-3" href="{%  url 'post-delete' object.slug  %}"
                             aria-label="Delete Post">Delete
                             Post</a>
                     </div>
                     {%  endif  %}
+                    <!-- Show Post Description -->
                     <div class="text-start">
                         <p>{{  object.project_description | safe  }}</p>
                         <p>Deployed Site: <a href="{{  object.deployed_link  }}" target="_blank"
@@ -58,18 +64,22 @@
                         <div class="d-flex flex-wrap justify-content-between mb-3">
                             <h3>Add Comment As: {{  user.username  }}</h3>
                         </div>
+                        <!-- Add Comment Form -->
                         <fieldset class="form-group">
                             <div class="row d-flex flex-wrap justify-content-between mb-3">
                                 <div class="col-sm-3 col-lg-2 hidden-xs">
+                                    <!-- Profile Image -->
                                     {%  if user.profile.profile_image.url  %}
                                     <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
                                         src="{{ user.profile.profile_image.url  }}" width="100" alt="Profile Image">
                                     {%  else  %}
+                                    <!-- Default Image -->
                                     <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
                                         src="https://res.cloudinary.com/ciara0s1980/image/upload/v1655849315/default__image.webp"
                                         width="100" alt="Default Profile Image">
                                     {%  endif  %}
                                 </div>
+                                <!-- Comment Form-->
                                 <div class="form-group col-xs-12 col-sm-7 col-lg-8">
                                     {{  comment_form | crispy  }}
                                 </div>
@@ -104,22 +114,26 @@
 <!-- List Comments -->
 {%  if comments  %}
 <section class="container mt-3 mb-3 pt-3 comments-section">
+    <!-- Total Number of Comments-->
     <h4><i class="fa-solid fa-comment"></i> Comment{{ post.comments.count|pluralize }}: {{ post.comments.count }}</h4>
     {% for comment in comments %}
     <div class="row pt-3">
         <div class="col-md-2"></div>
         <div class="col-md-2 text-md-start text-sm-center">
+            <!-- Profile Image -->
             {%  if comment.name.profile.profile_image.url  %}
             <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
                 src="{{comment.name.profile.profile_image.url }}" width="100" alt="Profile Image">
             {%  else  %}
+            <!-- Default Image -->
             <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
                 src="https://res.cloudinary.com/ciara0s1980/image/upload/v1655849315/default__image.webp" width="100"
                 alt="Default Profile Image">
             {%  endif  %}
         </div>
-        <div class="comments-list pb-3 col-md-6 text-center text-md-start">
 
+        <div class="comments-list pb-3 col-md-6 text-center text-md-start">
+            <!-- Comment Details -->
             <h5 class="mt-0">{{  comment.name  }}</h5>
             <ul class="list-unstyled">
                 <li><i class="fa-solid fa-calendar-days"></i> <i>{{  comment.date_posted  }}</i></li>
@@ -129,8 +143,10 @@
             </div>
 
             {%  if comment.name == user  %}
+            <!-- Update Comment if User is Author -->
             <a class="btn btn-primary btn-sm me-3" href="{%  url 'comment-update' comment.pk  %}"
                 aria-label="Update Comment">Update</a>
+                <!-- Delete Comment if User is Author -->
             <a class="btn btn-danger btn-sm ms-3" href="{%  url 'comment-delete' comment.pk  %}"
                 aria-label="Delete Comment">Delete</a>
             {%  endif  %}
@@ -165,6 +181,7 @@
 </div>
 
 {%  else %}
+<!-- If No Comments Invite User to be the First to Comment -->
 <section class="container d-flex justify-content-center">
     <div class="card ps-5 pe-5 mb-3 mt-5 shadow p-3 mb-5 bg-body rounded" style="width: 900px;">
         <div class="content-item d-flex justify-content-center">

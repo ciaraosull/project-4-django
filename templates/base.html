@@ -45,6 +45,7 @@
                     class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- Add Nav Link Styling to Active Pages -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 {% with request.resolver_match.url_name as url_name %}
                 <ul class="navbar-nav">
@@ -82,6 +83,7 @@
         </div>
     </nav>
 
+    <!-- Show Messages -->
     <main>
         <div class="text-center">
             {%  if messages  %}

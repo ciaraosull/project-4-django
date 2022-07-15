@@ -56,14 +56,17 @@
                     <div class="row g-0">
                         <div class="col-md-3">
                             {%  if post.author.profile.profile_image.url  %}
+                            <!-- Profile Image -->
                             <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
                                 src="{{post.author.profile.profile_image.url }}" width="100" alt="Profile Image">
                             {%  else  %}
+                            <!-- Default Image -->
                             <img class="rounded-circle border border-3 shadow p-3 mb-3 bg-body rounded mx-auto d-block mt-3"
                                 src="https://res.cloudinary.com/ciara0s1980/image/upload/v1655849315/default__image.webp"
                                 width="100" alt="Default Profile Image">
                             {%  endif  %}
                         </div>
+                        <!-- Snippet Details of Each Post-->
                         <div class="col-md-9 text-md-start text-center">
                             <div class="card-body">
                                 <h4 class="card-title">
@@ -120,7 +123,7 @@
     </div>
 </div>
 
-<!-- Empty Div to set relative footer at bottom of home page -->
+<!-- Empty Div to set relative footer at bottom of home page so all scrolls up over landing video -->
 <div id="empty-div"></div>
 
 {%  endblock content  %}
