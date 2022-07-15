@@ -77,14 +77,14 @@ Story points estimated the effort required to complete a particular User Story i
 
 Timeboxing defined the iteration where the User Stories were developed based on the assigned priority.  The MoSCoW Prioritization technique was used to assign priorities for Product Backlog Items to be completed in a particular time box.  GitHub Labels was used to categories the User Stories into Must Have, Should Have and Could Have. This clearly showed which User Stories were more important to implement first and in what order.  This kept the scope of the project in focus at all times and only implemented what was essential first.
 
-Information radiators in Agile show real-time, informative and straightforward work status.  This project used a Kaban board, which was set up in GitHub Projects to help keep track of work to do, in progress and completed.
+Information radiators in Agile show real-time, informative and straightforward work status.  This project used a Kaban board, which was set up in GitHub Projects ([here](https://github.com/ciaraosull/project-4-django/projects/1)) to help keep track of work to do, in progress and completed.
 
 Within the timeframe work stopped with over 73% of the timebox User Story points total of all Must Have and some Should Have prioritised User Stories.  Only 1 Should Have and 3 Could Have were left uncompleted and are documented in the future features section below.
 
 
 ## Features
 
-This website takes the users stories mentioned above into consideration to create a positive UX.  The users stories are discussed in more detail below with examples of how each is implemented.
+**This website takes the users stories mentioned above into consideration to create a positive UX.  The users stories are discussed in more detail below with examples of how each is implemented.**
 
 
 1. **Favicon**
@@ -467,6 +467,27 @@ NB: Ensure in Django settings, DEBUG is False, create a Procfile and save databa
 ### Version Control
 
 Git was used as the version control software. Commands such as git add ., git status, git commit and git push were used to add, save, stage and push the code to the GitHub repository where the source code is stored.
+
+### Cloning
+
+To clone this repository from GitHub to a local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits or contribute use the following steps:
+
+1.  On GitHub, navigate to the main page of the repository.
+
+2.  Above the list of files, click Code.
+
+3.  Click Use GitHub CLI, then the copy icon.
+
+4.  Open Git Bash and change the current working directory to the location where you want the cloned directory.
+
+5.  Type git clone, and then paste the URL that was copied from step 3 above.
+
+6. Press Enter to create the local clone.
+
+### Forking
+A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
+
+To fork this project go to the top left of the repository, where you see the Fork Icon and click Fork.  This will create a copy of the repository for you.
 
 ## Credits
 ### Content
