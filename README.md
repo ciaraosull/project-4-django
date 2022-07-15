@@ -362,9 +362,17 @@ After deployment, all features were tested for responsive design on a laptop and
 
 The README.md was proofread and passed through Grammarly and all links were checked before final submission.
 
-During development, after each piece of functionality was created it was manually tested.  Manually testing each function was recorded in the commits as development progressed.  The following table tracks the final full manual test of the site after deployment.
+During development, after each User Story was matched to their corresponding feature (acceptance criteria) and manually tested.  Manually testing each function was recorded in the commits as development progressed also but the following table tracks the final full manual test of the site after deployment.
 
-![Manual Test Log](README/assets/code-connects-manual-testing.png)
+![Manual Test Log 1](README/assets/test-log-1.png)
+
+![Manual Test Log 2](README/assets/test-log-2.png)
+
+![Manual Test Log 3](README/assets/test-log-3.png)
+
+![Manual Test Log 4](README/assets/test-log-4.png)
+
+![Manual Test Log 5](README/assets/test-log-5.png)
 
 ### Validator Testing
 
