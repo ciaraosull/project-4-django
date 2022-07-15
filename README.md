@@ -35,6 +35,7 @@ As a user I want to:
 *	Access the site on various devices such as desktop, tablet or mobile to that I can use the site no matter what device I have to hand.
 *	Understand when an error occurs so that I am given clear feedback on what I should do.
 *	Be aware when my actions have had a successful outcome so that I know when I have updated or deleted a post or comments or if I am logged in or out successfully.
+*   As a site admin user, I can log in so that I can manage a supportive online peer code review community by viewing users, profiles, posts and comments, and updating and deleting accordingly.
 
 
 ### Agile Approach in this Project
