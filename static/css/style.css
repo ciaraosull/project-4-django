@@ -33,13 +33,12 @@ main {
 }
 
 .nav-link.active {
-    color: #7c319e;
+    color: #7c319e !important;
+    border-bottom: 1px solid;
 }
 
 #navbarNav a:hover {
     color: #7c319e;
-    letter-spacing: 1px;
-    border-bottom: 1px solid;
 }
 
 /* Custom styling for footer */
