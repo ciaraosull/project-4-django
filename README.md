@@ -9,6 +9,9 @@ Users can login, post their project description, source code and deployed sites 
 View the live project [Here]( https://code-connects.herokuapp.com/)
 
 
+![Responsive Design Screenshot](README/assets/responsive-design-screenshot.png)
+
+
 ## User Experience (UX)
 
 ### User Stories
