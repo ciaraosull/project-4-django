@@ -281,15 +281,17 @@ Only approved admin users can access this section of the site and can do so by a
 
 Custom Error Pages were created to support the professionalism design and ensure appropriate link was added back to the main site to guide users who come across these messages.
 
-* 400 Bad Request
-* 403 Page Forbiden
-* 404 Page Not Found
-* 500 Server Error
+* 400 Bad Request - the server cannot process the request due to something that is perceived to be a user error (it may be incorrect or corrupt).
+* 403 Page Forbiden - the user does not have permission to access this resource
+* 404 Page Not Found - the user requested a page that is not available
+* 500 Server Error - internal server error where there is a general problem with the website's server and not the fault of the user
 
 
 ### Features Left to Implement
 
 The scope of this project really can be expanded to great lenghts but within a short time frame the following could be easily implemented:
+
+*   An extra added feature of styling the navigation links when a user is on that page was added.  This was to allow for easy navigation and sign post the user.  However, the 2 section links in the navigation bar About Us & View Posts could not be styled in this was as they did not have a url_name.  It was decided to leave this feature as is for now as the styling is only indicating to the user that they are on a different page.  As the Aout Us and Post View are within the Home Page this seems clear.  However, to change this some solutions to add to add this feature in the future could be using JavaScript and add an event listener and when the section is clicked the active class is then added to it as shown here in [W3Schools](https://www.w3schools.com/howto/howto_js_active_element.asp).  Another optiion would be to use Bootstrap5 [Scrollspy](https://getbootstrap.com/docs/5.2/components/scrollspy/), which could add a nice effect with less code.
 
 *   As described above, using the allauth already installed and set up, support for third-party (social) authentication via services like Github or Gmail so that users can use passwords and accounts to log in to this site instead of creating new ones.  Email notifications and reset password functionality could also be implemented quite easily in a short timeframe.
 
