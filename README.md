@@ -83,7 +83,7 @@ Timeboxing defined the iteration where the User Stories were developed based on 
 
 Information radiators in Agile show real-time, informative and straightforward work status.  This project used a Kaban board, which was set up in GitHub Projects ([here](https://github.com/ciaraosull/project-4-django/projects/1)) to help keep track of work to do, in progress and completed.
 
-Within the timeframe work stopped with over 73% of the timebox User Story points total of all Must Have and some Should Have prioritised User Stories.  Only 1 Should Have and 3 Could Have were left uncompleted and are documented in the future features section below.
+Within the timeframe work stopped with 83% of the timebox User Story points total of all Must Have and some Should Have prioritised User Stories.  Only 1 Should Have and 3 Could Have were left uncompleted and are documented in the future features section below.
 
 
 ## Features
