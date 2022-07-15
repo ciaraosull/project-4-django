@@ -15,10 +15,8 @@ from django.views.generic import (
 from django.core.paginator import Paginator
 from .models import Post, Comment
 from .forms import (
-    CreatePostForm,
-    UpdatePostForm,
+    PostForm,
     CommentForm,
-    UpdateCommentForm
 )
 
 
@@ -77,7 +75,7 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     """ Class to allow logged in users to create posts """
     model = Post
-    form_class = CreatePostForm
+    form_class = PostForm
 
     def form_valid(self, form):
         """Function to set signed in user as author of form to post"""
@@ -88,7 +86,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """ Class to allow logged in users to update posts """
     model = Post
-    form_class = UpdatePostForm
+    form_class = PostForm
 
     def form_valid(self, form):
         """Function to set signed in user as author of the form to post"""
@@ -122,7 +120,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """ Class to allow logged in users to update comments """
     model = Comment
-    form_class = UpdateCommentForm
+    form_class = CommentForm
 
     def form_valid(self, form):
         """
